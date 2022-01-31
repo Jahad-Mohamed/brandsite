@@ -1,0 +1,8 @@
+@use "./partials/resets";
+@use "/partials/header";
+@use "./partials/nav";
+@use "./partials/main";
+@use "./paritals/footer";
+@use "./partial/extensions";
+@use "./variable.scss";
+@use "/partials/mixins" as *;
