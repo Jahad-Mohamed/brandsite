@@ -6,12 +6,96 @@ body {
   box-sizing: border-box;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
+/*header section*/
+
+.header__section {
+  display: flex;
+  background-color: #323232;
+  width: 100%;
+  color: white;
+  box-sizing: border-box;
 }
 
-.header {
+.header_logo {
+}
+
+.navbar {
+  text-decoration: none;
+  list-style-type: none;
   display: flex;
-}/*# sourceMappingURL=bio.css.map */
+}
+
+.navbar__link {
+  padding-left: 20px;
+}
+
+/* images*/
+
+@media screen and (max-width: 250px) {
+  .image-gallery {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap-reverse;
+  }
+  .image-hero {
+    max-width: 100%;
+  }
+  .image-hero {
+    max-width: 100%;
+  }
+}
+
+/* main*/
+.main__page {
+  margin: 30px;
+  position: relative;
+  text-align: center;
+}
+
+.main__header {
+  position: absolute;
+  justify-content: left;
+  color: white;
+}
+
+.page {
+  position: relative;
+  text-align: center;
+}
+
+/* footer */
+
+.page__subheader {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 20px;
+}
+
+.icon {
+  padding: 20px;
+}
+
+.footer__section {
+  background-color: #323232;
+  color: white;
+  padding: 10px;
+}
+
+.footer__containers {
+  display: flex;
+  padding: 10px;
+}
+
+.footer__contact-name {
+  padding: 10px;
+  font-weight: 700;
+}
+.footer__contact-location,
+.footer__contact-email {
+  padding: 10px;
+}
+
+.footer__logo {
+  padding: 10px;
+  font-size: 36px;
+}
