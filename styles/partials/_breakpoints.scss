@@ -1,4 +1,5 @@
-@use "./partials/variables";
+@use "./variables" as *;
+//$mobile-max-width: 767px;
 
 /* media query for mobile */
 @mixin small {
@@ -9,14 +10,14 @@
 
 /* media query for tablet */
 @mixin medium {
-  @media only screen and (min-width: $tablet-min-width) {
+  @media only screen and (min-width: $tablet-max-width) {
     @content;
   }
 }
 
 /* media query for landscape, medium pixel density desktops */
 @mixin large {
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: $desktop-min-width) {
     @content;
   }
 }

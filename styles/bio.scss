@@ -4,6 +4,20 @@
 @use "./partials/header";
 @use "./partials/main";
 @use "./partials/footer";
-@use "./partials/extensions";
 @use "./partials/images";
 @use "./partials/mixin" as *;
+
+html,
+body {
+  margin: 0;
+  font-family: "Avenir", sans-serif;
+  line-height: 1.8rem;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

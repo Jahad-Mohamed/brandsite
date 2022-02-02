@@ -1,0 +1,35 @@
+.main {
+  display: block;
+
+  &__page {
+    position: relative;
+  }
+
+  &__header-title {
+    color: $white;
+  }
+
+  &__about {
+    padding: 1.25rem;
+  }
+
+  &__subheader {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 700;
+  }
+
+  &__image-hero {
+    max-width: 100%;
+  }
+
+  &__image-band {
+    max-width: 80%;
+    align-content: center;
+  }
+}
+
+.image-gallery {
+  width: 30%;
+  padding: 5px;
+}

@@ -1,0 +1,19 @@
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
+footer {
+  background-color: $black;
+  color: $white;
+
+  &__contact-details {
+    display: flex;
+  }
+
+  @include small {
+    flex-direction: column;
+  }
+
+  &__subheader {
+    font-weight: $bold;
+  }
+}

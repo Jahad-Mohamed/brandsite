@@ -1,9 +1,7 @@
-$tablet-breakpoint: 768px;
-$desktop-breakpoint: 1024px;
-
 // breakpoints
 $mobile-max-width: 767px;
-$tablet-min-width: 768px;
+$tablet-max-width: 1279px;
+$desktop-min-width: 1280px;
 
 // colours
 $black: #323232;
@@ -12,3 +10,8 @@ $sliver: #afafaf;
 $mercury: #e1e1e1;
 $white: #ffffff;
 $alabaster: #fafafa;
+
+//font weight
+$regular: 400;
+$demi: 600;
+$bold: 700;

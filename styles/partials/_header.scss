@@ -1,24 +1,40 @@
-@use "./partials/variables" as *;
-@use "./partials/breakpoints" as *;
+@use "./variables" as *;
+@use "./breakpoints" as *;
 
-.header__section {
+.header {
   background-color: $black;
   width: 100%;
-}
-.header__section {
   display: flex;
-  background-color: #323232;
   width: 100%;
   color: white;
   padding: 20px;
-}
 
-.navbar {
-  text-decoration: none;
-  list-style-type: none;
-  display: flex;
-}
+  @include small {
+    display: block;
+    align-items: center;
+  }
 
-.navbar__link {
-  padding-left: 20px;
+  @include medium {
+  }
+
+  @include large {
+  }
+
+  &__logo {
+    max-height: 1.25rem;
+    max-width: 7.5rem;
+  }
+
+  &___navbar {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    font-family: "Avenir", sans-serif;
+  }
+
+  &__navbar-link {
+    padding-left: 20px;
+    text-decoration: none;
+    list-style-type: none;
+  }
 }
