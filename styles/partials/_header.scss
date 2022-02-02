@@ -7,7 +7,7 @@
   display: flex;
   width: 100%;
   color: white;
-  padding: 20px;
+  padding: 10px;
 
   @include small {
     display: block;
@@ -25,16 +25,20 @@
     max-width: 7.5rem;
   }
 
-  &___navbar {
+  &__navbar {
     text-decoration: none;
     list-style-type: none;
     display: flex;
-    font-family: "Avenir", sans-serif;
+    margin: 0px;
+    justify-content: center;
+    padding-left: 00px;
   }
 
   &__navbar-link {
-    padding-left: 20px;
+    display: flex;
+    padding: 0.625rem 6.25rem;
     text-decoration: none;
     list-style-type: none;
+    font-size: 0.1.5rem;
   }
 }

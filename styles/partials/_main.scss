@@ -1,3 +1,6 @@
+$black: #323232;
+$alabaster: #fafafa;
+
 .main {
   display: block;
 
@@ -5,31 +8,51 @@
     position: relative;
   }
 
-  &__header-title {
-    color: $white;
+  &__header {
+    position: absolute;
+    top: 35%;
+    color: white;
+    padding-left: 2.5rem;
+    font-size: 1.5rem;
   }
 
   &__about {
-    padding: 1.25rem;
+    padding: 1.2rem;
   }
 
   &__subheader {
     font-size: 36px;
     line-height: 44px;
     font-weight: 700;
+    padding-bottom: 10px;
   }
 
   &__image-hero {
     max-width: 100%;
+    position: relative;
   }
 
   &__image-band {
-    max-width: 80%;
+    max-width: 100%;
     align-content: center;
+  }
+  &__subheader-small {
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: $black;
+  }
+
+  &__text {
+    font-size: 1.44rem;
+  }
+
+  &__gallery {
+    padding: 1.2rem;
+    background-color: $alabaster;
   }
 }
 
 .image-gallery {
-  width: 30%;
-  padding: 5px;
+  width: 100%;
+  padding: 0.16rem 0rem;
 }
