@@ -8,18 +8,23 @@
 
   &__contact {
     padding: 10px;
+    @include medium {
+      display: flex;
+      justify-self: flex-end;
+    }
   }
 
   &__subheader {
-    font-size: 3.2rem;
+    font-size: 3.75rem;
     line-height: 2.75rem;
     font-weight: 500;
-    padding: 10px;
+    padding-top: 1.5rem;
+    padding-right: 2rem;
   }
 
   &__icon {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 2.5rem;
+    height: 2.5rem;
     display: flex;
     margin: 1rem;
   }
@@ -29,15 +34,21 @@
   }
   &__containers {
     font-size: 1.5rem;
+    @include medium {
+      display: flex;
+    }
   }
   &__contact-details {
     display: flex;
     flex-direction: column;
     padding: 10px;
+    @include medium {
+      font-size: 1.225rem;
+    }
   }
 
   &__contact-name {
-    font-size: 1.625rem;
+    font-size: 1.225rem;
     padding: 10px;
     font-weight: 500;
     padding: 15px 10px;

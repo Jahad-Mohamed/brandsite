@@ -170,15 +170,22 @@
 .footer__contact {
   padding: 10px;
 }
+@media only screen and (min-width: 768px) {
+  .footer__contact {
+    display: flex;
+    justify-self: flex-end;
+  }
+}
 .footer__subheader {
-  font-size: 3.2rem;
+  font-size: 3.75rem;
   line-height: 2.75rem;
   font-weight: 500;
-  padding: 10px;
+  padding-top: 1.5rem;
+  padding-right: 2rem;
 }
 .footer__icon {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   margin: 1rem;
 }
@@ -188,13 +195,23 @@
 .footer__containers {
   font-size: 1.5rem;
 }
+@media only screen and (min-width: 768px) {
+  .footer__containers {
+    display: flex;
+  }
+}
 .footer__contact-details {
   display: flex;
   flex-direction: column;
   padding: 10px;
 }
+@media only screen and (min-width: 768px) {
+  .footer__contact-details {
+    font-size: 1.225rem;
+  }
+}
 .footer__contact-name {
-  font-size: 1.625rem;
+  font-size: 1.225rem;
   padding: 10px;
   font-weight: 500;
   padding: 15px 10px;
