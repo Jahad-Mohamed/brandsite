@@ -1,5 +1,5 @@
 @use "./partials/variables";
-@use "./partials/breakpoints";
+@use "./partials/breakpoints" as *;
 @use "./partials/resets";
 @use "./partials/header";
 @use "./partials/main";

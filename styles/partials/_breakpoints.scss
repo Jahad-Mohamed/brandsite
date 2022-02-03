@@ -10,7 +10,7 @@
 
 /* media query for tablet */
 @mixin medium {
-  @media only screen and (min-width: $tablet-max-width) {
+  @media only screen and (min-width: $tablet-min-width) {
     @content;
   }
 }
