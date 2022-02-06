@@ -43,13 +43,16 @@
 
     @include medium {
       display: flex;
+      justify-content: space-between;
       font-size: 1.225rem;
       text-align: left;
-      width: 100%;
-      margin-right: 3rem;
+      width: 90%;
     }
     @include large {
-      width: 100%;
+      justify-content: space-between;
+      font-size: 1.225rem;
+      text-align: left;
+      width: 50%;
     }
     &__contact-details {
       display: flex;
