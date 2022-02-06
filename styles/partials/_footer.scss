@@ -1,0 +1,116 @@
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
+.footer {
+  background-color: $black;
+  color: $white;
+  padding: 1.5rem;
+  @include medium {
+    padding: 3rem;
+  }
+
+  &__contact {
+    @include medium {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__subheader {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
+  }
+
+  &__icon {
+    width: 4vw;
+    height: 4vh;
+    margin-right: 1.5rem;
+  }
+
+  &__icons {
+    display: flex;
+    width: 6vw;
+    height: 6vh;
+    padding: 1rem 2rem 2rem 0rem;
+    @include medium {
+      padding: 0rem;
+    }
+  }
+
+  &__containers {
+    font-size: 1.5rem;
+
+    @include medium {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.225rem;
+      text-align: left;
+      width: 90%;
+    }
+    @include large {
+      justify-content: space-between;
+      font-size: 1.225rem;
+      text-align: left;
+      width: 50%;
+    }
+    &__contact-details {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.813rem;
+      margin-right: 2rem;
+    }
+    @include medium {
+      margin-right: 2rem;
+    }
+    @include large {
+      margin-right: 2rem;
+    }
+  }
+
+  &__contact-name {
+    font-size: 0.813rem;
+    font-weight: 500;
+    line-height: normal;
+    padding-bottom: 1rem;
+    margin-top: 1.2rem;
+  }
+
+  &__contact-location {
+    font-size: 0.813rem;
+    line-height: normal;
+    padding-bottom: 1rem;
+  }
+
+  &__contact-email {
+    font-size: 0.813rem;
+  }
+
+  &__logo-top {
+    @include small {
+      display: none;
+    }
+    @include medium {
+    }
+    @include large {
+    }
+  }
+
+  &__logo-bottom {
+    @include small {
+      width: 7.5rem;
+      padding-top: 1rem;
+    }
+    @include medium {
+      display: none;
+    }
+    @include large {
+      display: none;
+    }
+  }
+
+  &__copyright {
+    font-size: 0.813rem;
+    line-height: normal;
+  }
+}

@@ -1,0 +1,153 @@
+@use "./breakpoints" as *;
+
+$black: #323232;
+$alabaster: #fafafa;
+
+.main {
+  display: block;
+
+  &__page {
+    position: relative;
+  }
+
+  &__header {
+    position: absolute;
+    top: 35%;
+    color: white;
+    padding-left: 2.5rem;
+    font-size: 1.5rem;
+    @include medium {
+      font-size: 3.75rem;
+      line-height: 4.25rem;
+      font-weight: 700;
+    }
+  }
+
+  &__about {
+    padding: 1rem;
+    @include medium {
+      padding: 0rem 2.25rem;
+    }
+    @include large {
+      padding: auto;
+    }
+  }
+
+  &__subheader {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+    font-weight: 700;
+    padding: 1rem 0rem 1rem 2rem;
+    @include medium {
+      font-size: 2.25rem;
+      line-height: 2.75rem;
+      font-weight: 700;
+      padding: 2rem 0rem 2rem 2rem;
+    }
+  }
+
+  &__image-hero {
+    max-width: 100%;
+    position: relative;
+  }
+
+  &__image-band {
+    max-width: 100%;
+    align-content: center;
+    padding: 0rem;
+  }
+  &__subheader-small-quote {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 600;
+    @include medium {
+      font-size: 2.25rem;
+      line-height: 3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    @include large {
+      font-size: 1.5rem;
+      line-height: 2.75rem;
+      font-weight: 600;
+      padding-right: 11rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__subheader-small-name {
+    font-size: 0.875rem;
+    line-height: 1.375rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    @include medium {
+      font-size: 1.8rem;
+      line-height: 3rem;
+      font-weight: 500;
+      margin-top: 0rem;
+    }
+    @include large {
+      font-size: 1.5rem;
+      line-height: 2.75rem;
+      font-weight: 600;
+      padding-right: 11rem;
+      margin-top: 0rem;
+    }
+  }
+  &__container {
+    @include medium {
+      padding: 0rem 5.25rem;
+    }
+    @include large {
+      padding: 0rem 9rem;
+    }
+  }
+  &__context {
+    font-weight: 300;
+    @include medium {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  &__text {
+    font-size: 0.813rem;
+    line-height: 1.125rem;
+    font-weight: 400;
+    @include medium {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      font-weight: 400;
+      margin-right: 3rem;
+      margin-bottom: 2rem;
+    }
+    @include large {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      font-weight: 400;
+      margin-right: 2.8rem;
+      margin-bottom: 2rem;
+    }
+  }
+  &__gallery {
+    padding: 1.2rem;
+    background-color: $alabaster;
+  }
+  &__image-container {
+    @include medium {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+  }
+  &__images {
+    width: 100%;
+    padding: 0.5rem 0rem;
+    @include medium {
+      width: 100%;
+      max-height: 75vh;
+      min-width: 0;
+      width: 30%;
+      padding-bottom: 2rem;
+    }
+  }
+}

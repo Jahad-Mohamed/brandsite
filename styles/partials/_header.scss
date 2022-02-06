@@ -1,3 +1,85 @@
+@use "./variables" as *;
+@use "./breakpoints" as *;
+
 .header {
+  background-color: $black;
+  color: white;
+  padding-top: 1rem;
   display: flex;
+  align-items: center;
+
+  @include small {
+    flex-direction: column;
+    align-items: center;
+  }
+  @include medium {
+    padding-left: 4.75rem;
+  }
+
+  &__logo {
+    padding-top: 1rem;
+    padding-bottom: 1.2rem;
+    width: 7.5rem;
+    @include medium {
+      padding-bottom: 1.6rem;
+    }
+    @include large {
+      padding-bottom: 1.6rem;
+    }
+  }
+
+  &__nav-container {
+    display: block;
+    width: 100%;
+    padding-left: 0rem;
+
+    @include medium {
+      width: 30%;
+      margin-left: 3rem;
+      padding-top: 1.8rem;
+      padding-bottom: 0.9rem;
+    }
+    @include large {
+      width: 20%;
+      padding-top: 1.8rem;
+      padding-bottom: 0.9rem;
+      margin-left: 3rem;
+    }
+  }
+
+  &__navbar {
+    display: flex;
+    margin: 0rem;
+    text-align: center;
+    padding-left: 0rem;
+  }
+
+  &__navbar-link {
+    flex: auto;
+    text-decoration: none;
+    list-style-type: none;
+    font-size: 1.5rem;
+
+    padding-bottom: 1.2rem;
+    color: $mercury;
+  }
+  &__navbar-link:hover {
+    @include small {
+      border-bottom: 3px solid white;
+      font-weight: 700;
+    }
+
+    @include medium {
+      text-decoration: underline;
+      text-underline-offset: 150%;
+      text-decoration-thickness: 15%;
+      color: white;
+    }
+    @include large {
+      text-decoration: underline;
+      text-underline-offset: 150%;
+      text-decoration-thickness: 15%;
+      color: white;
+    }
+  }
 }

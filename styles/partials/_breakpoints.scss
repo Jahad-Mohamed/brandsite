@@ -1,0 +1,23 @@
+@use "./variables" as *;
+//$mobile-max-width: 767px;
+
+/* media query for mobile */
+@mixin small {
+  @media only screen and (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+/* media query for tablet */
+@mixin medium {
+  @media only screen and (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+/* media query for landscape, medium pixel density desktops */
+@mixin large {
+  @media only screen and (min-width: $desktop-min-width) {
+    @content;
+  }
+}
