@@ -3,42 +3,56 @@
 
 .header {
   background-color: $black;
-  width: 100%;
-  display: flex;
-  width: 100%;
   color: white;
-  padding: 10px;
+  padding: 1.5rem 1.5rem 0rem 1.5rem;
+  display: flex;
+  align-items: center;
 
   @include small {
-    display: block;
+    flex-direction: column;
     align-items: center;
   }
-
   @include medium {
-  }
-
-  @include large {
+    padding-left: 4.75rem;
   }
 
   &__logo {
-    max-height: 1.25rem;
-    max-width: 7.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 7.5rem;
+  }
+
+  &__nav-container {
+    display: block;
+    width: 100%;
+    padding: 0rem 2rem;
+    @include medium {
+      width: 40%;
+    }
+    @include large {
+      width: 25%;
+    }
   }
 
   &__navbar {
-    text-decoration: none;
-    list-style-type: none;
     display: flex;
-    margin: 0px;
-    justify-content: center;
-    padding-left: 00px;
+    margin: 0rem;
+    text-align: center;
   }
 
   &__navbar-link {
-    display: flex;
-    padding: 0.625rem 6.25rem;
+    flex: auto;
     text-decoration: none;
     list-style-type: none;
     font-size: 0.1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1.2rem;
+    color: $mercury;
+  }
+  &__navbar-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 150%;
+    text-decoration-thickness: 15%;
+    color: white;
   }
 }

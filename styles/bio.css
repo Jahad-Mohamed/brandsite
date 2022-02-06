@@ -3,36 +3,61 @@
 /* media query for landscape, medium pixel density desktops */
 .header {
   background-color: #323232;
-  width: 100%;
-  display: flex;
-  width: 100%;
   color: white;
-  padding: 10px;
+  padding: 1.5rem 1.5rem 0rem 1.5rem;
+  display: flex;
+  align-items: center;
 }
 @media only screen and (max-width: 767px) {
   .header {
-    display: block;
+    flex-direction: column;
     align-items: center;
   }
 }
+@media only screen and (min-width: 768px) {
+  .header {
+    padding-left: 4.75rem;
+  }
+}
 .header__logo {
-  max-height: 1.25rem;
-  max-width: 7.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 7.5rem;
+}
+.header__nav-container {
+  display: block;
+  width: 100%;
+  padding: 0rem 2rem;
+}
+@media only screen and (min-width: 768px) {
+  .header__nav-container {
+    width: 40%;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .header__nav-container {
+    width: 25%;
+  }
 }
 .header__navbar {
-  text-decoration: none;
-  list-style-type: none;
   display: flex;
-  margin: 0px;
-  justify-content: center;
-  padding-left: 0px;
+  margin: 0rem;
+  text-align: center;
 }
 .header__navbar-link {
-  display: flex;
-  padding: 0.625rem 6.25rem;
+  flex: auto;
   text-decoration: none;
   list-style-type: none;
   font-size: 0.1 0.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1.2rem;
+  color: #e1e1e1;
+}
+.header__navbar-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 150%;
+  text-decoration-thickness: 15%;
+  color: white;
 }
 
 .main {
@@ -72,15 +97,14 @@
   font-size: 2.25rem;
   line-height: 2.75rem;
   font-weight: 700;
-  padding-bottom: 10px;
-  padding: 1rem 0rem 1rem 0rem;
+  padding: 1rem 0rem 1rem 2rem;
 }
 @media only screen and (min-width: 768px) {
   .main__subheader {
     font-size: 2.25rem;
     line-height: 2.75rem;
     font-weight: 700;
-    padding: 2rem 0rem 2rem 0rem;
+    padding: 2rem 0rem 2rem 2rem;
   }
 }
 .main__image-hero {
@@ -92,29 +116,54 @@
   align-content: center;
   padding: 0rem;
 }
-.main__subheader-small {
+.main__subheader-small-quote {
   font-size: 0.875rem;
   line-height: 1.375rem;
   font-weight: 600;
 }
 @media only screen and (min-width: 768px) {
-  .main__subheader-small {
-    font-size: 1.5rem;
-    line-height: 2rem;
+  .main__subheader-small-quote {
+    font-size: 2.25rem;
+    line-height: 3rem;
     font-weight: 600;
+    margin-bottom: 1rem;
   }
 }
 @media only screen and (min-width: 1280px) {
-  .main__subheader-small {
+  .main__subheader-small-quote {
     font-size: 1.5rem;
-    line-height: 2rem;
+    line-height: 2.75rem;
     font-weight: 600;
-    padding-right: 12.5rem;
+    padding-right: 11rem;
+    margin-bottom: 1rem;
+  }
+}
+.main__subheader-small-name {
+  font-size: 0.875rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+@media only screen and (min-width: 768px) {
+  .main__subheader-small-name {
+    font-size: 1.8rem;
+    line-height: 3rem;
+    font-weight: 500;
+    margin-top: 0rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .main__subheader-small-name {
+    font-size: 1.5rem;
+    line-height: 2.75rem;
+    font-weight: 600;
+    padding-right: 11rem;
+    margin-top: 0rem;
   }
 }
 @media only screen and (min-width: 768px) {
   .main__container {
-    padding: 0rem 2.25rem;
+    padding: 0rem 5.25rem;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -158,39 +207,63 @@
   padding: 1.2rem;
   background-color: #fafafa;
 }
+@media only screen and (min-width: 768px) {
+  .main__image-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
 .main__images {
   width: 100%;
   padding: 0.5rem 0rem;
 }
+@media only screen and (min-width: 768px) {
+  .main__images {
+    width: 100%;
+    max-height: 75vh;
+    min-width: 0;
+    width: 30%;
+    padding-bottom: 2rem;
+  }
+}
+
 .footer {
   background-color: #323232;
   color: #ffffff;
-  padding: 19.2px;
+  padding: 1.5rem;
 }
-.footer__contact {
-  padding: 10px;
+@media only screen and (min-width: 768px) {
+  .footer {
+    padding: 3rem;
+  }
 }
 @media only screen and (min-width: 768px) {
   .footer__contact {
     display: flex;
-    justify-self: flex-end;
+    justify-content: space-between;
   }
 }
 .footer__subheader {
-  font-size: 3.75rem;
-  line-height: 2.75rem;
-  font-weight: 500;
-  padding-top: 1.5rem;
-  padding-right: 2rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 700;
 }
 .footer__icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  display: flex;
-  margin: 1rem;
+  width: 4vw;
+  height: 4vh;
+  margin-right: 1.5rem;
 }
 .footer__icons {
   display: flex;
+  width: 6vw;
+  height: 6vh;
+  padding: 1rem 2rem 2rem 0rem;
+}
+@media only screen and (min-width: 768px) {
+  .footer__icons {
+    padding: 0rem;
+  }
 }
 .footer__containers {
   font-size: 1.5rem;
@@ -198,47 +271,67 @@
 @media only screen and (min-width: 768px) {
   .footer__containers {
     display: flex;
+    font-size: 1.225rem;
+    text-align: left;
+    width: 100%;
+    margin-right: 3rem;
   }
 }
-.footer__contact-details {
+@media only screen and (min-width: 1280px) {
+  .footer__containers {
+    width: 100%;
+  }
+}
+.footer__containers__contact-details {
   display: flex;
   flex-direction: column;
-  padding: 10px;
-}
-@media only screen and (min-width: 768px) {
-  .footer__contact-details {
-    font-size: 1.225rem;
-  }
+  font-size: 0.813rem;
+  margin-right: 2rem;
 }
 .footer__contact-name {
-  font-size: 1.225rem;
-  padding: 10px;
+  font-size: 0.813rem;
   font-weight: 500;
-  padding: 15px 10px;
-  line-height: 2.375rem;
+  line-height: normal;
+  padding-bottom: 1rem;
+  margin-top: 1.2rem;
 }
 .footer__contact-location {
-  padding: 10px;
-  line-height: 2.2rem;
-  padding: 15px 10px;
+  font-size: 0.813rem;
+  line-height: normal;
+  padding-bottom: 1rem;
 }
 .footer__contact-email {
-  padding: 10px;
-}
-.footer__logo {
-  padding: 5rem;
-}
-.footer__copyright {
-  font-size: 1.625rem;
-  padding: 10px;
-  font-weight: 400;
-  padding: 15px 10px;
-  line-height: 2.375rem;
+  font-size: 0.813rem;
 }
 @media only screen and (max-width: 767px) {
-  .footer {
-    flex-direction: column;
+  .footer__logo-top {
+    display: none;
   }
+}
+@media only screen and (min-width: 1280px) {
+  .footer__logo-top {
+    display: none;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .footer__logo-bottom {
+    width: 7.5rem;
+    padding-top: 1rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .footer__logo-bottom {
+    display: none;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .footer__logo-bottom {
+    display: none;
+  }
+}
+.footer__copyright {
+  font-size: 0.813rem;
+  line-height: normal;
 }
 
 html,

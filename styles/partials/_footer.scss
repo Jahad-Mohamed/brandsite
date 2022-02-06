@@ -4,80 +4,105 @@
 .footer {
   background-color: $black;
   color: $white;
-  padding: 19.2px;
+  padding: 1.5rem;
+  @include medium {
+    padding: 3rem;
+  }
 
   &__contact {
-    padding: 10px;
     @include medium {
       display: flex;
-      justify-self: flex-end;
+      justify-content: space-between;
     }
   }
 
   &__subheader {
-    font-size: 3.75rem;
-    line-height: 2.75rem;
-    font-weight: 500;
-    padding-top: 1.5rem;
-    padding-right: 2rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    font-weight: 700;
   }
 
   &__icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex;
-    margin: 1rem;
+    width: 4vw;
+    height: 4vh;
+    margin-right: 1.5rem;
   }
 
   &__icons {
     display: flex;
-  }
-  &__containers {
-    font-size: 1.5rem;
+    width: 6vw;
+    height: 6vh;
+    padding: 1rem 2rem 2rem 0rem;
     @include medium {
-      display: flex;
+      padding: 0rem;
     }
   }
-  &__contact-details {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+
+  &__containers {
+    font-size: 1.5rem;
+
     @include medium {
+      display: flex;
       font-size: 1.225rem;
+      text-align: left;
+      width: 100%;
+      margin-right: 3rem;
+    }
+    @include large {
+      width: 100%;
+    }
+    &__contact-details {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.813rem;
+      margin-right: 2rem;
     }
   }
 
   &__contact-name {
-    font-size: 1.225rem;
-    padding: 10px;
+    font-size: 0.813rem;
     font-weight: 500;
-    padding: 15px 10px;
-    line-height: 2.375rem;
+    line-height: normal;
+    padding-bottom: 1rem;
+    margin-top: 1.2rem;
   }
 
   &__contact-location {
-    padding: 10px;
-    line-height: 2.2rem;
-    padding: 15px 10px;
+    font-size: 0.813rem;
+    line-height: normal;
+    padding-bottom: 1rem;
   }
 
   &__contact-email {
-    padding: 10px;
+    font-size: 0.813rem;
   }
 
-  &__logo {
-    padding: 5rem;
+  &__logo-top {
+    @include small {
+      display: none;
+    }
+    @include medium {
+    }
+    @include large {
+      display: none;
+    }
+  }
+
+  &__logo-bottom {
+    @include small {
+      width: 7.5rem;
+      padding-top: 1rem;
+    }
+    @include medium {
+      display: none;
+    }
+    @include large {
+      display: none;
+    }
   }
 
   &__copyright {
-    font-size: 1.625rem;
-    padding: 10px;
-    font-weight: 400;
-    padding: 15px 10px;
-    line-height: 2.375rem;
-  }
-
-  @include small {
-    flex-direction: column;
+    font-size: 0.813rem;
+    line-height: normal;
   }
 }
