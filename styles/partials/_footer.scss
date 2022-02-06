@@ -57,6 +57,12 @@
       font-size: 0.813rem;
       margin-right: 2rem;
     }
+    @include medium {
+      margin-right: 2rem;
+    }
+    @include large {
+      margin-right: 2rem;
+    }
   }
 
   &__contact-name {
@@ -84,7 +90,6 @@
     @include medium {
     }
     @include large {
-      display: none;
     }
   }
 

@@ -4,7 +4,7 @@
 .header {
   background-color: #323232;
   color: white;
-  padding: 1.5rem 1.5rem 0rem 1.5rem;
+  padding-top: 1rem;
   display: flex;
   align-items: center;
 }
@@ -27,7 +27,7 @@
 .header__nav-container {
   display: block;
   width: 100%;
-  padding: 0rem 2rem;
+  padding-left: 0rem;
 }
 @media only screen and (min-width: 768px) {
   .header__nav-container {
@@ -43,21 +43,36 @@
   display: flex;
   margin: 0rem;
   text-align: center;
+  padding-left: 0rem;
 }
 .header__navbar-link {
   flex: auto;
   text-decoration: none;
   list-style-type: none;
   font-size: 0.1 0.5rem;
-  padding-top: 1rem;
   padding-bottom: 1.2rem;
   color: #e1e1e1;
 }
-.header__navbar-link:hover {
-  text-decoration: underline;
-  text-underline-offset: 150%;
-  text-decoration-thickness: 15%;
-  color: white;
+@media only screen and (max-width: 767px) {
+  .header__navbar-link:hover {
+    border-bottom: 3px solid white;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .header__navbar-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 150%;
+    text-decoration-thickness: 15%;
+    color: white;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .header__navbar-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 150%;
+    text-decoration-thickness: 15%;
+    color: white;
+  }
 }
 
 .main {
@@ -288,6 +303,16 @@
   font-size: 0.813rem;
   margin-right: 2rem;
 }
+@media only screen and (min-width: 768px) {
+  .footer__containers {
+    margin-right: 2rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .footer__containers {
+    margin-right: 2rem;
+  }
+}
 .footer__contact-name {
   font-size: 0.813rem;
   font-weight: 500;
@@ -304,11 +329,6 @@
   font-size: 0.813rem;
 }
 @media only screen and (max-width: 767px) {
-  .footer__logo-top {
-    display: none;
-  }
-}
-@media only screen and (min-width: 1280px) {
   .footer__logo-top {
     display: none;
   }

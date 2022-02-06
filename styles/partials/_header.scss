@@ -4,7 +4,7 @@
 .header {
   background-color: $black;
   color: white;
-  padding: 1.5rem 1.5rem 0rem 1.5rem;
+  padding-top: 1rem;
   display: flex;
   align-items: center;
 
@@ -25,7 +25,8 @@
   &__nav-container {
     display: block;
     width: 100%;
-    padding: 0rem 2rem;
+    padding-left: 0rem;
+
     @include medium {
       width: 40%;
     }
@@ -38,6 +39,7 @@
     display: flex;
     margin: 0rem;
     text-align: center;
+    padding-left: 0rem;
   }
 
   &__navbar-link {
@@ -45,14 +47,26 @@
     text-decoration: none;
     list-style-type: none;
     font-size: 0.1.5rem;
-    padding-top: 1rem;
+
     padding-bottom: 1.2rem;
     color: $mercury;
   }
   &__navbar-link:hover {
-    text-decoration: underline;
-    text-underline-offset: 150%;
-    text-decoration-thickness: 15%;
-    color: white;
+    @include small {
+      border-bottom: 3px solid white;
+    }
+
+    @include medium {
+      text-decoration: underline;
+      text-underline-offset: 150%;
+      text-decoration-thickness: 15%;
+      color: white;
+    }
+    @include large {
+      text-decoration: underline;
+      text-underline-offset: 150%;
+      text-decoration-thickness: 15%;
+      color: white;
+    }
   }
 }
