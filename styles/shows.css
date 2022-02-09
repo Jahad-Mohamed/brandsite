@@ -1,0 +1,56 @@
+/* media query for landscape, medium pixel density desktops */
+.main__iframe {
+  width: 100%;
+  height: 40vh;
+  text-align: center;
+}
+
+.shows {
+  margin: 2rem;
+}
+.shows__label {
+  color: #afafaf;
+  font-size: 0.875rem;
+  margin: 0rem;
+}
+@media only screen and (min-width: 768px) {
+  .shows__label {
+    margin-bottom: 1.5rem;
+  }
+}
+.shows__date-info {
+  font-weight: 500;
+  margin-top: 0rem;
+  line-height: 2rem;
+  margin-bottom: 1rem;
+}
+.shows__location {
+  font-weight: 400;
+  line-height: 2rem;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+}
+.shows__button {
+  width: 100%;
+  height: 4rem;
+  background-color: #323232;
+  border-radius: 0.75rem;
+  color: white;
+  font-size: 1.4rem;
+  margin: 1rem 0rem;
+}
+@media only screen and (min-width: 768px) {
+  .shows__button {
+    width: 20%;
+    height: 3rem;
+    font-size: 1.3rem;
+    margin-top: 3rem;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .shows__container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+}/*# sourceMappingURL=shows.css.map */
