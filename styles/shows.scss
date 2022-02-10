@@ -17,24 +17,69 @@ $desktop-min-width: 1280px;
 }
 
 .main {
-  &__iframe {
+  &__hero-shows {
     width: 100%;
-    height: 40vh;
-    text-align: center;
+    height: 50vh;
+    @include medium {
+      height: 60vh;
+    }
+    @include large {
+      height: 100vh;
+    }
+  }
+  &__album-title {
+    font-size: 2rem;
+    width: 80vw;
+    font-weight: 400;
+    margin: 0rem;
+    top: -7rem;
+    @include medium {
+      font-weight: 500;
+
+      margin: 0rem;
+    }
+    @include large {
+      margin: 0rem;
+    }
+  }
+
+  &__album-song {
+    line-height: 4.5rem;
+    font-size: 3.5rem;
+    font-weight: 500;
+    width: 65vw;
+    top: -7rem;
+    margin: 0rem;
+    @include medium {
+      font-weight: 600;
+      width: 60vw;
+    }
+    @include large {
+      width: 40vw;
+    }
   }
 }
 .shows__heading {
-  margin: 2rem;
+  margin: 2rem 0rem 2rem 2rem;
 }
 
 .shows__container {
-  padding: 2rem 2rem 0rem 2rem;
+  padding: 0rem 2rem 2rem 2rem;
+}
+
+.shows:active {
+  background-color: #e1e1e1;
+}
+.shows:hover {
+  background-color: #fafafa;
 }
 .shows {
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1;
+  padding-top: 1rem;
   @include medium {
     display: flex;
     width: 100%;
@@ -44,16 +89,14 @@ $desktop-min-width: 1280px;
   @include large {
     justify-content: space-evenly;
   }
+
   &__label {
     color: #afafaf;
-    margin: 0rem 0rem;
+    margin: 0rem;
     font-weight: 500;
-    margin-top: 0rem;
   }
   &__date-info {
-    font-weight: 700;
-    margin-top: 0rem;
-    line-height: 2rem;
+    font-weight: 500;
     margin-top: 0rem;
   }
 
@@ -84,11 +127,12 @@ $desktop-min-width: 1280px;
     color: white;
     font-size: 0.875rem;
     margin: 1rem 0rem;
+
     @include medium {
       width: 9.375rem;
       height: 2.5rem;
       font-size: 0.875rem;
-      margin-top: 3rem;
+      margin-top: 1rem;
     }
   }
   &__button:hover {

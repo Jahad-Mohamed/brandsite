@@ -59,11 +59,6 @@ const loadShows = (data) => {
     showsEl.classList.add("shows");
     showsContainerEl.appendChild(showsEl);
 
-    // Shows Heading - TITLE
-    const showsHeadingEl = document.createElement("h2");
-    showsHeadingEl.classList.add("shows__heading");
-    showsEl.appendChild(showsHeadingEl);
-
     //DATE section
     const dateSectionEl = document.createElement("div");
     dateSectionEl.classList.add("shows__date");

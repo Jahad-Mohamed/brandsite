@@ -1,16 +1,70 @@
 /* media query for landscape, medium pixel density desktops */
-.main__iframe {
+.main__hero-shows {
   width: 100%;
-  height: 40vh;
-  text-align: center;
+  height: 50vh;
+}
+@media only screen and (min-width: 768px) {
+  .main__hero-shows {
+    height: 60vh;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .main__hero-shows {
+    height: 100vh;
+  }
+}
+.main__album-title {
+  font-size: 2rem;
+  width: 80vw;
+  font-weight: 400;
+  margin: 0rem;
+  top: -7rem;
+}
+@media only screen and (min-width: 768px) {
+  .main__album-title {
+    font-weight: 500;
+    margin: 0rem;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .main__album-title {
+    margin: 0rem;
+  }
+}
+.main__album-song {
+  line-height: 4.5rem;
+  font-size: 3.5rem;
+  font-weight: 500;
+  width: 65vw;
+  top: -7rem;
+  margin: 0rem;
+}
+@media only screen and (min-width: 768px) {
+  .main__album-song {
+    font-weight: 600;
+    width: 60vw;
+  }
+}
+@media only screen and (min-width: 1280px) {
+  .main__album-song {
+    width: 40vw;
+  }
 }
 
 .shows__heading {
-  margin: 2rem;
+  margin: 2rem 0rem 2rem 2rem;
 }
 
 .shows__container {
-  padding: 2rem 2rem 0rem 2rem;
+  padding: 0rem 2rem 2rem 2rem;
+}
+
+.shows:active {
+  background-color: #e1e1e1;
+}
+
+.shows:hover {
+  background-color: #fafafa;
 }
 
 .shows {
@@ -18,6 +72,8 @@
   flex-direction: column;
   width: 100%;
   justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1;
+  padding-top: 1rem;
 }
 @media only screen and (min-width: 768px) {
   .shows {
@@ -34,14 +90,11 @@
 }
 .shows__label {
   color: #afafaf;
-  margin: 0rem 0rem;
+  margin: 0rem;
   font-weight: 500;
-  margin-top: 0rem;
 }
 .shows__date-info {
-  font-weight: 700;
-  margin-top: 0rem;
-  line-height: 2rem;
+  font-weight: 500;
   margin-top: 0rem;
 }
 .shows__info {
@@ -75,7 +128,7 @@
     width: 9.375rem;
     height: 2.5rem;
     font-size: 0.875rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 }
 .shows__button:hover {
