@@ -42,6 +42,9 @@
     flex-direction: row;
     justify-content: space-evenly;
     width: 100%;
+    @include medium {
+      padding: 1rem 1rem;
+    }
   }
   &__title {
     font-size: 0.713rem;

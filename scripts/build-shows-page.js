@@ -1,10 +1,4 @@
-// const body = document.body;
-// const section = document.createElement("h2");
-// section.innerText = "Shows";
-
-// body.append(section);
-
-const showsData = [
+const showsList = [
   {
     date: "Mon Sept 06 2021",
     venue: "Ronald Lane ",
@@ -54,119 +48,80 @@ const showsData = [
 ];
 
 const loadShows = (data) => {
-  let showsWrapperEl = document.querySelector(".shows__wrapper");
+  let showsContainerEl = document.querySelector(".shows__container");
 
   // let shows = [];
 
   for (let i = 0; i < data.length; i++) {
-    const show = data[i];
-    //   {
-    // 	date: "Mon Sept 06 2021",
-    // 	venue: "Ronald Lane ",
-    // 	location: "San Francisco, CA",
-    // },
+    const shows = data[i];
 
-    const showEl = document.createElement("div");
-    // showEl.addEventListener("click", () => {
-    // 	showEl.classList.toggle("show--active");
-    // });
+    const showsEl = document.createElement("div");
+    showsEl.classList.add("shows");
+    showsContainerEl.appendChild(showsEl);
 
-    showEl.classList.add("show");
-    showsWrapperEl.appendChild(showEl);
+    // Shows Heading - TITLE
+    const showsHeadingEl = document.createElement("h2");
+    showsHeadingEl.classList.add("shows__heading");
+    showsEl.appendChild(showsHeadingEl);
 
-    //First Cell - DATE
-    const dateWrapperEl = document.createElement("div");
-    dateWrapperEl.classList.add("show__wrapper");
-    dateWrapperEl.classList.add("date__wrapper");
+    //DATE section
+    const dateSectionEl = document.createElement("div");
+    dateSectionEl.classList.add("shows__date");
 
-    const dateLabelEl = document.createElement("h4");
-    dateLabelEl.classList.add("show__label");
-    dateLabelEl.classList.add("date__label");
-    dateLabelEl.innerText = "DATE";
-    dateWrapperEl.appendChild(dateLabelEl);
+    const dateTagsEl = document.createElement("h4");
+    dateTagsEl.classList.add("shows__label");
+    dateTagsEl.innerText = "DATE";
+    dateSectionEl.appendChild(dateTagsEl);
 
     const dateInfoEl = document.createElement("h4");
-    dateInfoEl.classList.add("show__info");
-    dateInfoEl.classList.add("date__info");
-    dateInfoEl.innerText = show.date;
-    dateWrapperEl.appendChild(dateInfoEl);
+    dateInfoEl.classList.add("shows__date-info");
+    dateInfoEl.innerText = shows.date;
+    dateSectionEl.appendChild(dateInfoEl);
 
-    showEl.appendChild(dateWrapperEl);
+    showsEl.appendChild(dateSectionEl);
 
-    //Second Cell - VENUE
-    const venueWrapperEl = document.createElement("div");
-    venueWrapperEl.classList.add("show__wrapper");
-    venueWrapperEl.classList.add("venue__wrapper");
+    //VENUE section
+    const venueSectionEl = document.createElement("div");
+    venueSectionEl.classList.add("shows__venue");
 
     const venueLabelEl = document.createElement("h4");
-    venueLabelEl.classList.add("show__label");
-    venueLabelEl.classList.add("venue__label");
+    venueLabelEl.classList.add("shows__label");
     venueLabelEl.innerText = "VENUE";
-    venueWrapperEl.appendChild(venueLabelEl);
+    venueSectionEl.appendChild(venueLabelEl);
 
     const venueInfoEl = document.createElement("h4");
-    venueInfoEl.classList.add("show__info");
-    venueInfoEl.classList.add("venue__info");
-    venueInfoEl.innerText = show.venue;
-    venueWrapperEl.appendChild(venueInfoEl);
+    venueInfoEl.classList.add("shows__info");
+    venueInfoEl.innerText = shows.venue;
+    venueSectionEl.appendChild(venueInfoEl);
 
-    showEl.appendChild(venueWrapperEl);
+    showsEl.appendChild(venueSectionEl);
 
-    //Third Cell - LOCATION
-    const locationWrapperEl = document.createElement("div");
-    locationWrapperEl.classList.add("show__wrapper");
-    locationWrapperEl.classList.add("location__wrapper");
+    //LOCATION section
+    const locationSectionEl = document.createElement("div");
+    locationSectionEl.classList.add("shows__location");
 
     const locationLabelEl = document.createElement("h4");
-    locationLabelEl.classList.add("show__label");
-    locationLabelEl.classList.add("location__label");
+    locationLabelEl.classList.add("shows__label");
     locationLabelEl.innerText = "LOCATION";
-    locationWrapperEl.appendChild(locationLabelEl);
+    locationSectionEl.appendChild(locationLabelEl);
 
     const locationInfoEl = document.createElement("h4");
-    locationInfoEl.classList.add("show__info");
-    locationInfoEl.classList.add("location__info");
-    locationInfoEl.innerText = show.location;
-    locationWrapperEl.appendChild(locationInfoEl);
+    locationInfoEl.classList.add("shows__address");
+    locationInfoEl.innerText = shows.location;
+    locationSectionEl.appendChild(locationInfoEl);
 
-    showEl.appendChild(locationWrapperEl);
-    //Fourth Cell - BUTTON
+    showsEl.appendChild(locationSectionEl);
+
+    // BUTTON section
 
     const buyButton = document.createElement("button");
-    buyButton.classList.add("show__button");
-    buyButton.classList.add("button");
-    buyButton.classList.add("buy__button");
+    buyButton.classList.add("shows__button");
     buyButton.innerText = "BUY TICKETS";
 
-    showEl.appendChild(buyButton);
+    showsEl.appendChild(buyButton);
 
-    showsWrapperEl.appendChild(showEl);
+    showsContainerEl.appendChild(showsEl);
   } //FOR LOOP ENDS HERE
 };
 
-loadShows(showsData);
-
-// <!-- <div class="shows__wrapper"> //This exists in HTML
-
-// <!-- <div class="show">
-
-//         <div class="show__wrapper date__wrapper">
-//           <h4 class="show__label date__label">DATE</h4>
-//           <h4 class="show__info date__info">Mon Sept 06 2021</h4>
-//         </div>
-
-//         <div class="show__wrapper venue__wrapper">
-//           <h4 class="show__label venue__label">VENUE</h4>
-//           <h4 class="show__info venue__info">Ronald Lane</h4>
-//         </div>
-
-//         <div class="show__wrapper location__wrapper">
-//           <h4 class="show__label location__label">LOCATION</h4>
-//           <h4 class="show__info location__info">San Francisco, CA</h4>
-//         </div>
-
-//         <button class="show__button button buy__button">BUY TICKETS</button>
-
-//       </div> -->
-
-//       </div> -->
+loadShows(showsList);

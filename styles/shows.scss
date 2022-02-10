@@ -23,29 +23,59 @@ $desktop-min-width: 1280px;
     text-align: center;
   }
 }
-
-.shows {
+.shows__heading {
   margin: 2rem;
+}
+
+.shows__container {
+  padding: 2rem 2rem 0rem 2rem;
+}
+.shows {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  @include medium {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  @include large {
+    justify-content: space-evenly;
+  }
   &__label {
     color: #afafaf;
-    font-size: 0.875rem;
-    margin: 0rem;
-    @include medium {
-      margin-bottom: 1.5rem;
-    }
-  }
-  &__date-info {
+    margin: 0rem 0rem;
     font-weight: 500;
     margin-top: 0rem;
-    line-height: 2rem;
-    margin-bottom: 1rem;
   }
+  &__date-info {
+    font-weight: 700;
+    margin-top: 0rem;
+    line-height: 2rem;
+    margin-top: 0rem;
+  }
+
+  &__info {
+    font-weight: 400;
+    margin-top: 0rem;
+    line-height: 2rem;
+    margin-top: 0rem;
+  }
+
   &__location {
     font-weight: 400;
     line-height: 2rem;
     margin-top: 0rem;
-    margin-bottom: 1rem;
   }
+  &__address {
+    font-weight: 400;
+    margin-top: 0rem;
+    line-height: 2rem;
+    margin-bottom: 0rem;
+  }
+
   &__button {
     width: 100%;
     height: 2.5rem;
@@ -63,16 +93,6 @@ $desktop-min-width: 1280px;
   }
   &__button:hover {
     background-color: #000000;
-  }
-  &__container {
-    @include medium {
-      display: flex;
-      width: 100%;
-      justify-content: space-between;
-    }
-    @include large {
-      justify-content: space-evenly;
-    }
   }
   &__heading {
     font-size: 1.5rem;

@@ -419,6 +419,11 @@
   justify-content: space-evenly;
   width: 100%;
 }
+@media only screen and (min-width: 768px) {
+  .comment__container {
+    padding: 1rem 1rem;
+  }
+}
 .comment__title {
   font-size: 0.713rem;
   color: #afafaf;
