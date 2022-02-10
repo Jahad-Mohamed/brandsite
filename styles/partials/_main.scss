@@ -151,30 +151,3 @@ $alabaster: #fafafa;
     }
   }
 }
-
-.comment {
-  padding: 1.2rem;
-}
-&__heading {
-  font-size: 2.25rem;
-}
-
-&__button {
-  width: 100%;
-  height: 2.5rem;
-  background-color: #323232;
-  border-radius: 0.25rem;
-  color: white;
-  font-size: 0.875rem;
-  margin: 1rem 0rem;
-  @include medium {
-    width: 9.375rem;
-    height: 2.5rem;
-    font-size: 0.875rem;
-    margin-top: 3rem;
-  }
-  &__query-form {
-    display: flex;
-    flex-direction: column;
-  }
-}
