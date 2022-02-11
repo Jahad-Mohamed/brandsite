@@ -451,6 +451,34 @@
   padding-left: 0.85rem;
   color: #323232;
 }
+.comment__wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+.comment__name-date-image {
+  display: flex;
+}
+.comment__name-date {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1rem;
+  margin-left: 1.2rem;
+}
+.comment__name {
+  font-weight: 600;
+}
+.comment__date {
+  color: #afafaf;
+  font-weight: 400;
+}
+.comment__text {
+  font-weight: 400;
+  padding-left: 4rem;
+  margin: 0rem;
+}
 
 html,
 body {

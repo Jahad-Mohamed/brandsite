@@ -13,17 +13,29 @@
     height: 100vh;
   }
 }
+.main__header {
+  color: white;
+  padding-left: 2.5rem;
+  font-size: 1.5rem;
+  top: 0%;
+}
+.main__page {
+  background-image: url("../assets/images/hero-shows.jpg");
+  background-size: cover;
+  height: 50rem;
+  display: flex;
+  justify-content: start;
+}
 .main__album-title {
   font-size: 2rem;
   width: 80vw;
   font-weight: 400;
-  margin: 0rem;
-  top: -7rem;
+  margin-top: 6rem;
 }
 @media only screen and (min-width: 768px) {
   .main__album-title {
+    margin-top: 6rem;
     font-weight: 500;
-    margin: 0rem;
   }
 }
 @media only screen and (min-width: 1280px) {
@@ -57,6 +69,8 @@
 
 .shows__container {
   padding: 0rem 2rem 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .shows:active {

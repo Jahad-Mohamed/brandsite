@@ -27,16 +27,28 @@ $desktop-min-width: 1280px;
       height: 100vh;
     }
   }
+  &__header {
+    color: white;
+    padding-left: 2.5rem;
+    font-size: 1.5rem;
+    top: 0%;
+  }
+  &__page {
+    background-image: url("../assets/images/hero-shows.jpg");
+    background-size: cover;
+    height: 50rem;
+    display: flex;
+    justify-content: start;
+  }
   &__album-title {
     font-size: 2rem;
     width: 80vw;
     font-weight: 400;
-    margin: 0rem;
-    top: -7rem;
-    @include medium {
-      font-weight: 500;
+    margin-top: 6rem;
 
-      margin: 0rem;
+    @include medium {
+      margin-top: 6rem;
+      font-weight: 500;
     }
     @include large {
       margin: 0rem;
@@ -65,6 +77,8 @@ $desktop-min-width: 1280px;
 
 .shows__container {
   padding: 0rem 2rem 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .shows:active {
