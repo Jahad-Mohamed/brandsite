@@ -11,6 +11,7 @@
   @include small {
     flex-direction: column;
     align-items: center;
+    padding-left: 0rem;
   }
   @include medium {
     padding-left: 4.75rem;
@@ -21,10 +22,10 @@
     padding-bottom: 1.2rem;
     width: 7.5rem;
     @include medium {
-      padding-bottom: 1.6rem;
+      padding-bottom: 1rem;
     }
     @include large {
-      padding-bottom: 1.6rem;
+      padding-bottom: 1rem;
     }
   }
 
@@ -65,7 +66,7 @@
   }
   &__navbar-link:hover {
     @include small {
-      border-bottom: 3px solid white;
+      border-bottom: 6px solid white;
       font-weight: 700;
     }
 

@@ -27,6 +27,12 @@ formEl.addEventListener("submit", (event) => {
 
   console.log(event.target.elements);
 
+  // will output all form elements
+
+  // All inputs are available by their name="" attribute value
+  // input values are available through value property
+
+
   const nameInput = document.querySelector(".comment__box-name");
   const commentInput = document.querySelector(".comment__box-comment");
 
