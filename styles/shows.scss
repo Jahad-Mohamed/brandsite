@@ -16,6 +16,14 @@ $desktop-min-width: 1280px;
   }
 }
 
+.iframe {
+  width: 110%;
+  height: 100%;
+  @include medium {
+    width: 51%;
+  }
+}
+
 .main {
   &__hero-shows {
     width: 100%;
@@ -24,7 +32,7 @@ $desktop-min-width: 1280px;
       height: 60vh;
     }
     @include large {
-      height: 100vh;
+      height: 30%;
     }
   }
   &__header {
@@ -32,6 +40,9 @@ $desktop-min-width: 1280px;
     padding-left: 2.5rem;
     font-size: 1.5rem;
     top: 0%;
+    @include large {
+      margin-top: 10rem;
+    }
   }
   &__page {
     background-image: url("../assets/images/hero-shows.jpg");
@@ -48,6 +59,7 @@ $desktop-min-width: 1280px;
 
     @include medium {
       margin-top: 6rem;
+      margin-bottom: 2;
       font-weight: 500;
     }
     @include large {
@@ -60,8 +72,8 @@ $desktop-min-width: 1280px;
     font-size: 3.5rem;
     font-weight: 500;
     width: 65vw;
-    top: -7rem;
     margin: 0rem;
+    margin-bottom: 2rem;
     @include medium {
       font-weight: 600;
       width: 60vw;

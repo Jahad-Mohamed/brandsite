@@ -1,4 +1,14 @@
 /* media query for landscape, medium pixel density desktops */
+.iframe {
+  width: 110%;
+  height: 100%;
+}
+@media only screen and (min-width: 768px) {
+  .iframe {
+    width: 51%;
+  }
+}
+
 .main__hero-shows {
   width: 100%;
   height: 50vh;
@@ -10,7 +20,7 @@
 }
 @media only screen and (min-width: 1280px) {
   .main__hero-shows {
-    height: 100vh;
+    height: 30%;
   }
 }
 .main__header {
@@ -18,6 +28,11 @@
   padding-left: 2.5rem;
   font-size: 1.5rem;
   top: 0%;
+}
+@media only screen and (min-width: 1280px) {
+  .main__header {
+    margin-top: 10rem;
+  }
 }
 .main__page {
   background-image: url("../assets/images/hero-shows.jpg");
@@ -35,6 +50,7 @@
 @media only screen and (min-width: 768px) {
   .main__album-title {
     margin-top: 6rem;
+    margin-bottom: 2;
     font-weight: 500;
   }
 }
@@ -48,8 +64,8 @@
   font-size: 3.5rem;
   font-weight: 500;
   width: 65vw;
-  top: -7rem;
   margin: 0rem;
+  margin-bottom: 2rem;
 }
 @media only screen and (min-width: 768px) {
   .main__album-song {

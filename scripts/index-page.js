@@ -19,6 +19,36 @@ const commentData = [
   },
 ];
 
+let formEl = document.querySelector(".comment__query-form");
+formEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  console.log(event);
+
+  console.log(event.target.elements);
+  // will output all form elements
+
+  // All inputs are available by their name="" attribute value
+  // input values are available through value property
+
+  const nameInput = document.querySelector(".comment__box-name");
+  const commentInput = document.querySelector(".comment__box-comment");
+
+  console.log(nameInput, commentInput);
+
+  const nameValue = nameInput.value;
+  const commentValue = commentInput.value;
+
+  const newComment = {
+    name: nameValue,
+    comment: commentValue,
+    date: Date.now(),
+    //date: new Date().getDate(),
+  };
+
+  console.log(nameValue, commentValue);
+});
+
 const loadComment = (data) => {
   let commentWrapperEl = document.querySelector(".comment__wrapper");
 
