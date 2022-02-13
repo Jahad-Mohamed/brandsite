@@ -9,15 +9,18 @@
   </head>
   <body>
     <header class="header">
-      <img
-        src="../assets/logo/Logo-bandsite.svg"
-        alt="brand-logo"
-        class="header__logo"
-      />
+      <a href="index.html"
+        ><img
+          src="../assets/logo/Logo-bandsite.svg"
+          alt="brand-logo"
+          class="header__logo"
+      /></a>
       <div class="header__nav-container">
         <ul class="header__navbar">
           <li class="header__navbar-link">Biography</li>
-          <li class="header__navbar-link">Shows</li>
+          <a href="./pages/shows.html" class="header__navbar-link"
+            ><li>Shows</li></a
+          >
         </ul>
       </div>
     </header>
@@ -79,51 +82,90 @@
         <div class="main__image-container">
           <img
             src="../assets/images/Photo-gallery-1.jpg"
-            alt=""
+            alt="Photo-Gallery-1"
             class="main__images"
           />
           <img
             src="../assets/images/Photo-gallery-2.jpg"
-            alt=""
+            alt="Photo-Gallery-2"
             class="main__images"
           />
           <img
             src="../assets/images/Photo-gallery-3.jpg"
-            alt=""
+            alt="Photo-Gallery-3"
             class="main__images"
           />
           <img
             src="../assets/images/Photo-gallery-4.jpg"
-            alt=""
+            alt="Photo-Gallery-4"
             class="main__images"
           />
           <img
             src="../assets/images/Photo-gallery-5.jpg"
-            alt=""
+            alt="Photo-Gallery-5"
             class="main__images"
           />
           <img
             src="../assets/images/Photo-gallery-6.jpg"
-            alt=""
+            alt="Photo-Gallery-6"
             class="main__images"
           />
           <img
             src="../assets/images/Photo-gallery-7.jpg"
-            alt=""
+            alt="Photo-Gallery-7"
             class="main__images"
           />
           <img
             src="../assets/images/Photo-gallery-8.jpg"
-            alt=""
+            alt="Photo-Gallery-8"
             class="main__images"
           />
           <img
             src="../assets/images/Photo-gallery-9.jpg"
-            alt=""
+            alt="Photo-Gallery-9"
             class="main__images"
           />
         </div>
       </section>
+      <section class="comment">
+        <h2 class="comment__heading">Join the Conversation</h2>
+        <section class="comment__container">
+          <img
+            src="../assets/images/Mohan-muruge.jpg"
+            alt="Mohan-muruge"
+            class="comment__image"
+          />
+
+          <form class="comment__query-form" autocomplete="off" novalidate>
+            <label for="name" class="comment__title">NAME</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              class="comment__box-name"
+            
+              required
+            />
+            <div class="comment__section">
+              <label for="comment" class="comment__title">COMMENT</label>
+              <textarea
+                name="comment"
+                placeholder="Add a new comment"
+                class="comment__box-comment"
+                rows="5"
+                cols="40"
+                
+              ></textarea>
+            </div>
+
+            <button class="comment__button" type="submit">COMMENT</button>
+        </section>
+            <section class="comment__wrapper">
+              
+            </section>
+          </form>
+        </section>
+      
     </main>
     <footer class="footer">
       <section class="footer__contact">
@@ -198,5 +240,6 @@
         </p>
       </section>
     </footer>
+    <script src="../scripts/index-page.js"></script>
   </body>
 </html>
