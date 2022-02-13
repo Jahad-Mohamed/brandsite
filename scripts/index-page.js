@@ -1,4 +1,4 @@
-const data = [
+const commentData = [
   {
     name: "Miles Acosta",
     date: "12/20/2020",
@@ -19,15 +19,15 @@ const data = [
   },
 ];
 
-function loadShows(data) {
-  let commentWrapperEl = document.querySelector("comment__wrapper");
+const loadComment = (data) => {
+  let commentWrapperEl = document.querySelector(".comment__wrapper");
 
   for (let i = 0; i < data.length; i++) {
-    const commentLog = data[i];
+    const comments = data[i];
 
     const commentLogEL = document.createElement("div");
     commentLogEL.classList.add("comment__log");
-    commentWrapperEl.appendChild(showsEl);
+    commentWrapperEl.appendChild(commentLogEL);
 
     const commentUserEL = document.createElement("div");
     commentUserEL.classList.add("comment__user");
@@ -39,9 +39,9 @@ function loadShows(data) {
     nameDateImageSectionEl.classList.add("comment__name-date-image");
 
     const imgTagsEl = document.createElement("img");
-    dateTagsEl.classList.add("comment__image");
-    dateTagsEl.innerHTML = "src=../assets/images/Mohan-muruge.jpg";
-    nameDateImageSectionEl.appendChild(imgTagsEl);
+    imgTagsEl.classList.add("comment__image");
+    imgTagsEl.innerHTML = "src=../assets/images/Mohan-muruge.jpg";
+    commentUserEL.appendChild(imgTagsEl);
 
     const nameDateEl = document.createElement("div");
     nameDateEl.classList.add("comment__name-date");
@@ -49,21 +49,24 @@ function loadShows(data) {
 
     //name and date child
     const commentNameEl = document.createElement("h4");
-    nacommentNameElmeDateEl.classList.add("comment__name");
-    commentNameEl.innerText = data.name;
+    commentNameEl.classList.add("comment__name");
+    commentNameEl.innerText = comments.name;
     nameDateEl.appendChild(commentNameEl);
 
     const commentDateEl = document.createElement("h4");
     commentDateEl.classList.add("comment__date");
-    commentDateEl.innerText = data.date;
+    commentDateEl.innerText = comments.date;
     nameDateEl.appendChild(commentDateEl);
 
     // commment section
+
     const commentTextEl = document.createElement("h4");
     commentTextEl.classList.add("comment__text");
-    commentTextEl.innerText = data.comment;
+    commentTextEl.innerText = comments.comment;
     nameDateImageSectionEl.appendChild(commentTextEl);
 
     commentUserEL.appendChild(nameDateImageSectionEl);
   }
-}
+};
+
+loadComment(commentData);

@@ -76,19 +76,21 @@
   }
   &__wrapper {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     width: 100%;
   }
   &__name-date-image {
     display: flex;
+    padding-left: 2rem;
+
+    flex-direction: column;
   }
   &__name-date {
     display: flex;
     justify-content: space-between;
     width: 100%;
     padding-top: 1rem;
-    margin-left: 1.2rem;
   }
   &__name {
     font-weight: 600;
@@ -99,11 +101,12 @@
   }
   &__text {
     font-weight: 400;
-    padding-left: 4rem;
+
     margin: 0rem;
   }
 
   &__user {
+    display: flex;
     padding-bottom: 1rem;
     border-bottom: 1px solid #e1e1e1;
   }
