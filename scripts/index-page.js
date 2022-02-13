@@ -1,9 +1,9 @@
-const comments = [
+const data = [
   {
-    name: "Connor Walton",
-    date: "02/17/2021",
+    name: "Miles Acosta",
+    date: "12/20/2020",
     comment:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
+      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
   },
   {
     name: "Emilie Beach",
@@ -12,9 +12,58 @@ const comments = [
       "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
   },
   {
-    name: "Miles Acosta",
-    date: "12/20/2020",
+    name: "Connor Walton",
+    date: "02/17/2021",
     comment:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
   },
 ];
+
+function loadShows(data) {
+  let commentWrapperEl = document.querySelector("comment__wrapper");
+
+  for (let i = 0; i < data.length; i++) {
+    const commentLog = data[i];
+
+    const commentLogEL = document.createElement("div");
+    commentLogEL.classList.add("comment__log");
+    commentWrapperEl.appendChild(showsEl);
+
+    const commentUserEL = document.createElement("div");
+    commentUserEL.classList.add("comment__user");
+    commentLogEL.appendChild(commentUserEL);
+
+    // name section
+
+    const nameDateImageSectionEl = document.createElement("div");
+    nameDateImageSectionEl.classList.add("comment__name-date-image");
+
+    const imgTagsEl = document.createElement("img");
+    dateTagsEl.classList.add("comment__image");
+    dateTagsEl.innerHTML = "src=../assets/images/Mohan-muruge.jpg";
+    nameDateImageSectionEl.appendChild(imgTagsEl);
+
+    const nameDateEl = document.createElement("div");
+    nameDateEl.classList.add("comment__name-date");
+    nameDateImageSectionEl.appendChild(nameDateEl);
+
+    //name and date child
+    const commentNameEl = document.createElement("h4");
+    nacommentNameElmeDateEl.classList.add("comment__name");
+    commentNameEl.innerText = data.name;
+    nameDateEl.appendChild(commentNameEl);
+
+    const commentDateEl = document.createElement("h4");
+    commentDateEl.classList.add("comment__date");
+    commentDateEl.innerText = data.date;
+    nameDateEl.appendChild(commentDateEl);
+
+    // commment section
+    const commentTextEl = document.createElement("h4");
+    commentTextEl.classList.add("comment__text");
+    commentTextEl.innerText = data.comment;
+    nameDateImageSectionEl.appendChild(commentTextEl);
+
+    commentUserEL.appendChild(nameDateImageSectionEl);
+  }
+}

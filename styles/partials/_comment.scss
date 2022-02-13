@@ -102,4 +102,12 @@
     padding-left: 4rem;
     margin: 0rem;
   }
+
+  &__user {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  &__log {
+    padding: 0rem 1.5rem;
+  }
 }
