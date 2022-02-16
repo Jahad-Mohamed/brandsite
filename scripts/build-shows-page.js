@@ -1,3 +1,7 @@
+const ShowsData = axios.get(
+  "https://project-1-api.herokuapp.com/showdates/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E3E"
+);
+
 const showsList = [
   {
     date: "Mon Sept 06 2021",

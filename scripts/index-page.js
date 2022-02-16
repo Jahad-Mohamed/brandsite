@@ -1,23 +1,42 @@
-const commentData = [
-  {
-    name: "Connor Walton",
-    date: "02/17/2021",
-    comment:
-      "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-  },
-  {
-    name: "Emilie Beach",
-    date: "01/09/2021",
-    comment:
-      "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-  },
-  {
-    name: "Miles Acosta",
-    date: "12/20/2020",
-    comment:
-      "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-  },
-];
+const commentData = axios
+  .get(
+    "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E"
+  )
+  // HTTP GET
+  .then((response) => {
+    console.log(response);
+    console.log(response.data);
+    console.log(typeof response.data);
+  })
+  .catch((err) => console.log("My API Error: ", err));
+
+// HTTP POST
+
+axios.post(commentData).then((response) => {
+  console.log("New User: ", response.data);
+
+
+
+// const commentData = [
+//   {
+//     name: "Connor Walton",
+//     date: "02/17/2021",
+//     comment:
+//       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
+//   },
+//   {
+//     name: "Emilie Beach",
+//     date: "01/09/2021",
+//     comment:
+//       "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
+//   },
+//   {
+//     name: "Miles Acosta",
+//     date: "12/20/2020",
+//     comment:
+//       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+//   },
+// ];
 
 let formEl = document.querySelector(".comment__query-form");
 formEl.addEventListener("submit", (event) => {
@@ -31,7 +50,6 @@ formEl.addEventListener("submit", (event) => {
 
   // All inputs are available by their name="" attribute value
   // input values are available through value property
-
 
   const nameInput = document.querySelector(".comment__box-name");
   const commentInput = document.querySelector(".comment__box-comment");
