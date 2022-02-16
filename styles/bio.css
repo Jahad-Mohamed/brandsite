@@ -352,6 +352,8 @@
 }
 .footer__contact-email {
   font-size: 0.813rem;
+  color: white;
+  text-decoration: none;
 }
 @media only screen and (max-width: 767px) {
   .footer__logo-top {
