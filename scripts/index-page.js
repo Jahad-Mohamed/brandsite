@@ -1,4 +1,4 @@
-const commentData = axios
+let commentData = axios
   .get(
     "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E"
   )
@@ -10,12 +10,15 @@ const commentData = axios
   })
   .catch((err) => console.log("My API Error: ", err));
 
-// HTTP POST
+// // HTTP POST
 
-axios.post(commentData).then((response) => {
-  console.log("New User: ", response.data);
+// const commentPostData = axios.get(
+//   "https://project-1-api.herokuapp.com/post/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E"
+// );
 
-
+// axios.post(commentPostData).then((response) => {
+//   console.log(response.data);
+// });
 
 // const commentData = [
 //   {

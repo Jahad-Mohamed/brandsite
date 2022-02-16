@@ -250,6 +250,7 @@
 .main__images {
   width: 100%;
   padding: 0.5rem 0rem;
+  filter: grayscale(100%);
 }
 @media only screen and (min-width: 768px) {
   .main__images {
@@ -259,6 +260,9 @@
     width: 30%;
     padding-bottom: 2rem;
   }
+}
+.main__images:hover {
+  filter: grayscale(0%);
 }
 
 .footer {

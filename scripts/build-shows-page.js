@@ -1,6 +1,15 @@
-const ShowsData = axios.get(
-  "https://project-1-api.herokuapp.com/showdates/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E3E"
-);
+// const showsList = axios
+//   .get(
+//     "https://project-1-api.herokuapp.com/showdates/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E3E"
+//   )
+
+//   // HTTP GET
+//   .then((response) => {
+//     console.log(response);
+//     console.log(response.data);
+//     console.log(typeof response.data);
+//   })
+//   .catch((err) => console.log("My API Error: ", err));
 
 const showsList = [
   {

@@ -142,6 +142,7 @@ $alabaster: #fafafa;
   &__images {
     width: 100%;
     padding: 0.5rem 0rem;
+    filter: grayscale(100%);
     @include medium {
       width: 100%;
       max-height: 75vh;
@@ -149,5 +150,8 @@ $alabaster: #fafafa;
       width: 30%;
       padding-bottom: 2rem;
     }
+  }
+  &__images:hover {
+    filter: grayscale(0%);
   }
 }
