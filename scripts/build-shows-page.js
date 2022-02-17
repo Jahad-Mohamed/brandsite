@@ -1,64 +1,63 @@
-// const showsList = axios
-//   .get(
-//     "https://project-1-api.herokuapp.com/showdates/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E3E"
-//   )
+const showsData = axios
+  .get(
+    "https://project-1-api.herokuapp.com/showdates/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E3E"
+  )
+  .then((response) => {
+    let dataArr = response.data;
 
-//   // HTTP GET
-//   .then((response) => {
-//     console.log(response);
-//     console.log(response.data);
-//     console.log(typeof response.data);
-//   })
-//   .catch((err) => console.log("My API Error: ", err));
+    let commentData = dataArr.forEach((dataArr) => {
+      console.log(dataArr);
+    });
+  });
 
-const showsList = [
-  {
-    date: "Mon Sept 06 2021",
-    venue: "Ronald Lane ",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Tue Sept 21 2021",
-    venue: "Pier 3 East",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Oct 15 2021",
-    venue: "View Lounge",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Sat Nov 06 2021",
-    venue: "Hyatt Agency",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Fri Nov 26 2021",
-    venue: "Moscow Center",
-    location: "San Francisco, CA",
-  },
+// const showsList = [
+//   {
+//     date: "Mon Sept 06 2021",
+//     venue: "Ronald Lane ",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Tue Sept 21 2021",
+//     venue: "Pier 3 East",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Fri Oct 15 2021",
+//     venue: "View Lounge",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Sat Nov 06 2021",
+//     venue: "Hyatt Agency",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Fri Nov 26 2021",
+//     venue: "Moscow Center",
+//     location: "San Francisco, CA",
+//   },
 
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-  {
-    date: "Wed Dec 15 2021",
-    venue: "Press Club",
-    location: "San Francisco, CA",
-  },
-];
+//   {
+//     date: "Wed Dec 15 2021",
+//     venue: "Press Club",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Wed Dec 15 2021",
+//     venue: "Press Club",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Wed Dec 15 2021",
+//     venue: "Press Club",
+//     location: "San Francisco, CA",
+//   },
+//   {
+//     date: "Wed Dec 15 2021",
+//     venue: "Press Club",
+//     location: "San Francisco, CA",
+//   },
+// ];
 
 const loadShows = (data) => {
   let showsContainerEl = document.querySelector(".shows__container");
@@ -132,4 +131,4 @@ const loadShows = (data) => {
   } //FOR LOOP ENDS HERE
 };
 
-loadShows(showsList);
+loadShows(showsData);
