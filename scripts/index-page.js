@@ -1,3 +1,55 @@
+let formEl = document.querySelector(".comment__query-form");
+formEl.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  console.log(event);
+
+  console.log(event.target.elements);
+
+  // will output all form elements
+
+  // All inputs are available by their name="" attribute value
+  // input values are available through value property
+
+  const nameInput = document.querySelector(".comment__box-name");
+  const commentInput = document.querySelector(".comment__box-comment");
+
+  console.log("myvalues", nameInput, commentInput);
+
+  const nameValue = nameInput.value;
+  const commentValue = commentInput.value;
+
+  const newComment = {
+    name: nameValue,
+    comment: commentValue,
+  };
+
+  console.log("myvalues2", nameValue, commentValue);
+  postComment(newComment);
+});
+
+let postComment = (comment) => {
+  axios
+    .post(
+      "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E",
+      comment
+    )
+    .then((response) =>
+      getAllComment(response).catch((err) => console.log("My API Error: ", err))
+    );
+};
+getAllComment = () => {
+  axios
+    .get(
+      "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E"
+    )
+    .then((response) =>
+      processResponse(response.data).catch((err) =>
+        console.log("My API Error: ", err)
+      )
+    );
+};
+
 // HTTP GET
 const getData = axios
   .get(
@@ -7,8 +59,14 @@ const getData = axios
     let dataArr = response.data;
 
     dataArr.forEach((dataArr) => {
-      console.log(dataArr);
+      console.log(dataArr.name);
+      console.log(dataArr.timestamp);
+      console.log(dataArr.comment);
     });
+
+    let name = dataArr.name;
+    let timestamp = dataArr.timestamp;
+    let comment = dataArr.comment;
 
     //HTTP GET COMMENTS
 
@@ -52,35 +110,6 @@ const getData = axios
     //   },
     // ];
 
-    let formEl = document.querySelector(".comment__query-form");
-    formEl.addEventListener("submit", (event) => {
-      event.preventDefault();
-
-      console.log(event);
-
-      console.log(event.target.elements);
-
-      // will output all form elements
-
-      // All inputs are available by their name="" attribute value
-      // input values are available through value property
-
-      const nameInput = document.querySelector(".comment__box-name");
-      const commentInput = document.querySelector(".comment__box-comment");
-
-      console.log(nameInput, commentInput);
-
-      const nameValue = nameInput.value;
-      const commentValue = commentInput.value;
-
-      const newComment = {
-        name: nameValue,
-        comment: commentValue,
-      };
-
-      console.log(nameValue, commentValue);
-    });
-
     const loadComment = (data) => {
       let commentWrapperEl = document.querySelector(".comment__wrapper");
 
@@ -88,6 +117,7 @@ const getData = axios
         const comments = data[i];
 
         const commentLogEL = document.createElement("div");
+
         commentLogEL.classList.add("comment__log");
         commentWrapperEl.appendChild(commentLogEL);
 
@@ -112,24 +142,23 @@ const getData = axios
         //name and date child
         const commentNameEl = document.createElement("h4");
         commentNameEl.classList.add("comment__name");
-        commentNameEl.innerText = dataArr.name;
+        commentNameEl.innerText = name;
         nameDateEl.appendChild(commentNameEl);
 
         const commentDateEl = document.createElement("h4");
         commentDateEl.classList.add("comment__date");
-        commentDateEl.innerText = dataArr.timestamp;
+        commentDateEl.innerText = timestamp;
         nameDateEl.appendChild(commentDateEl);
 
         // commment section
 
         const commentTextEl = document.createElement("h4");
         commentTextEl.classList.add("comment__text");
-        commentTextEl.innerText = dataArr.comment;
+        commentTextEl.innerText = comment;
         nameDateImageSectionEl.appendChild(commentTextEl);
 
         commentUserEL.appendChild(nameDateImageSectionEl);
       }
     };
-
     loadComment(dataArr);
   });
