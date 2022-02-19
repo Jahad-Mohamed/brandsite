@@ -1,4 +1,57 @@
 let formEl = document.querySelector(".comment__query-form");
+
+const loadComment = (data) => {
+  let commentWrapperEl = document.querySelector(".comment__wrapper");
+  console.log("new comment" + data.name);
+  for (let i = data.length - 1; i >= 0; i--) {
+    const comments = data[i];
+
+    const commentLogEL = document.createElement("div");
+
+    commentLogEL.classList.add("comment__log");
+    commentWrapperEl.appendChild(commentLogEL);
+
+    const commentUserEL = document.createElement("div");
+    commentUserEL.classList.add("comment__user");
+    // commentUserEL.innerHTML =
+    commentLogEL.appendChild(commentUserEL);
+
+    // name section
+
+    const nameDateImageSectionEl = document.createElement("div");
+    nameDateImageSectionEl.classList.add("comment__name-date-image");
+
+    const imgTagsEl = document.createElement("img");
+    imgTagsEl.classList.add("comment__image");
+    // imgTagsEl.src="../assets/images/Mohan-muruge.jpg";
+    commentUserEL.appendChild(imgTagsEl);
+
+    const nameDateEl = document.createElement("div");
+    nameDateEl.classList.add("comment__name-date");
+    nameDateImageSectionEl.appendChild(nameDateEl);
+
+    //name and date child
+    const commentNameEl = document.createElement("h4");
+    commentNameEl.classList.add("comment__name");
+    commentNameEl.innerText = data[i].name;
+    nameDateEl.appendChild(commentNameEl);
+
+    const commentDateEl = document.createElement("h4");
+    commentDateEl.classList.add("comment__date");
+    commentDateEl.innerText = data[i].timestamp;
+    nameDateEl.appendChild(commentDateEl);
+
+    // commment section
+
+    const commentTextEl = document.createElement("h4");
+    commentTextEl.classList.add("comment__text");
+    commentTextEl.innerText = data[i].comment;
+    nameDateImageSectionEl.appendChild(commentTextEl);
+
+    commentUserEL.appendChild(nameDateImageSectionEl);
+  }
+};
+
 formEl.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -26,6 +79,9 @@ formEl.addEventListener("submit", (event) => {
 
   console.log("myvalues2", nameValue, commentValue);
   postComment(newComment);
+  loadComment(newComment);
+  nameInput.value = null;
+  commentInput.value = null;
 });
 
 let postComment = (comment) => {
@@ -34,9 +90,53 @@ let postComment = (comment) => {
       "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E",
       comment
     )
-    .then((response) =>
-      getAllComment(response).catch((err) => console.log("My API Error: ", err))
-    );
+    .then((response) => {
+      let initialDiv = document.createElement("div");
+      initialDiv.className = "initialDiv";
+      // initialDiv.innerHTML="[object HTMLDivElement]";
+      let comment__log = document.createElement("div");
+      comment__log.className = "comment__log";
+      let comment__user = document.createElement("div");
+      comment__user.className = "comment__user";
+      comment__log.append(comment__user);
+      let comment__image = document.createElement("img");
+      comment__image.className = "comment__image";
+
+      let comment__name_date_image = document.createElement("DIV");
+      comment__name_date_image.className = "comment__name-date-image";
+
+      let comment__name_date = document.createElement("div");
+      comment__name_date.className = "comment__name-date";
+
+      let comment__name = document.createElement("h4");
+      comment__name.className = "comment__name";
+      comment__name.innerHTML = response.data.name;
+      let comment__date = document.createElement("h4");
+      comment__date.className = "comment__date";
+      comment__date.innerHTML = response.data.timestamp;
+
+      let comment__text = document.createElement("h4");
+      comment__text.className = "comment__text";
+      comment__text.innerHTML = response.data.comment;
+
+      comment__name_date.append(comment__name, comment__date);
+      comment__name_date_image.append(comment__name_date, comment__text);
+      comment__user.append(
+        initialDiv,
+        comment__image,
+        comment__name_date_image
+      );
+
+      //  var deleteButton = document.createElement("button");
+
+      console.log(
+        response.data,
+        "hhhhhhhhhhhhhhh",
+        document.querySelector(".comment__wrapper").prepend(comment__log)
+      );
+      // getAllComment().catch((err) => console.log("My API Error: ", err))
+      // getAllComment();
+    });
 };
 getAllComment = () => {
   axios
@@ -68,97 +168,5 @@ const getData = axios
     let timestamp = dataArr.timestamp;
     let comment = dataArr.comment;
 
-    //HTTP GET COMMENTS
-
-    // const sendData = axios
-    //   .post(
-    //     "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E",
-    //     {
-    //       name: "Nigel",
-    //       comment: "This is a cool site",
-    //       id: 1,
-    //       likes: 0,
-    //       timestamp: 1530716269495,
-    //     }
-    //   )
-    //   .then((response) => {
-    //     console.log(response);
-    //     console.log();
-    //   })
-    //   .catch((err) => console.log("My API Error: ", err));
-
-    /////////////////////////////
-
-    // const commentData = [
-    //   {
-    //     name: "Connor Walton",
-    //     date: "02/17/2021",
-    //     comment:
-    //       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-    //   },
-    //   {
-    //     name: "Emilie Beach",
-    //     date: "01/09/2021",
-    //     comment:
-    //       "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-    //   },
-    //   {
-    //     name: "Miles Acosta",
-    //     date: "12/20/2020",
-    //     comment:
-    //       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-    //   },
-    // ];
-
-    const loadComment = (data) => {
-      let commentWrapperEl = document.querySelector(".comment__wrapper");
-
-      for (let i = 0; i < data.length - 1; i++) {
-        const comments = data[i];
-
-        const commentLogEL = document.createElement("div");
-
-        commentLogEL.classList.add("comment__log");
-        commentWrapperEl.appendChild(commentLogEL);
-
-        const commentUserEL = document.createElement("div");
-        commentUserEL.classList.add("comment__user");
-        commentUserEL.innerHTML = commentLogEL.appendChild(commentUserEL);
-
-        // name section
-
-        const nameDateImageSectionEl = document.createElement("div");
-        nameDateImageSectionEl.classList.add("comment__name-date-image");
-
-        const imgTagsEl = document.createElement("img");
-        imgTagsEl.classList.add("comment__image");
-        imgTagsEl.innerHTML = "src=../assets/images/Mohan-muruge.jpg";
-        commentUserEL.appendChild(imgTagsEl);
-
-        const nameDateEl = document.createElement("div");
-        nameDateEl.classList.add("comment__name-date");
-        nameDateImageSectionEl.appendChild(nameDateEl);
-
-        //name and date child
-        const commentNameEl = document.createElement("h4");
-        commentNameEl.classList.add("comment__name");
-        commentNameEl.innerText = name;
-        nameDateEl.appendChild(commentNameEl);
-
-        const commentDateEl = document.createElement("h4");
-        commentDateEl.classList.add("comment__date");
-        commentDateEl.innerText = timestamp;
-        nameDateEl.appendChild(commentDateEl);
-
-        // commment section
-
-        const commentTextEl = document.createElement("h4");
-        commentTextEl.classList.add("comment__text");
-        commentTextEl.innerText = comment;
-        nameDateImageSectionEl.appendChild(commentTextEl);
-
-        commentUserEL.appendChild(nameDateImageSectionEl);
-      }
-    };
     loadComment(dataArr);
   });

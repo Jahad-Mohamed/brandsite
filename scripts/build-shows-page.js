@@ -4,60 +4,12 @@ const showsData = axios
   )
   .then((response) => {
     let dataArr = response.data;
-
+    console.log(dataArr);
     let commentData = dataArr.forEach((dataArr) => {
       console.log(dataArr);
     });
+    loadShows(dataArr);
   });
-
-// const showsList = [
-//   {
-//     date: "Mon Sept 06 2021",
-//     venue: "Ronald Lane ",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Tue Sept 21 2021",
-//     venue: "Pier 3 East",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Fri Oct 15 2021",
-//     venue: "View Lounge",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Sat Nov 06 2021",
-//     venue: "Hyatt Agency",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Fri Nov 26 2021",
-//     venue: "Moscow Center",
-//     location: "San Francisco, CA",
-//   },
-
-//   {
-//     date: "Wed Dec 15 2021",
-//     venue: "Press Club",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Wed Dec 15 2021",
-//     venue: "Press Club",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Wed Dec 15 2021",
-//     venue: "Press Club",
-//     location: "San Francisco, CA",
-//   },
-//   {
-//     date: "Wed Dec 15 2021",
-//     venue: "Press Club",
-//     location: "San Francisco, CA",
-//   },
-// ];
 
 const loadShows = (data) => {
   let showsContainerEl = document.querySelector(".shows__container");
@@ -82,7 +34,7 @@ const loadShows = (data) => {
 
     const dateInfoEl = document.createElement("h4");
     dateInfoEl.classList.add("shows__date-info");
-    dateInfoEl.innerText = shows.date;
+    dateInfoEl.innerText = convert("/Date(" + shows.date + ")/");
     dateSectionEl.appendChild(dateInfoEl);
 
     showsEl.appendChild(dateSectionEl);
@@ -98,7 +50,7 @@ const loadShows = (data) => {
 
     const venueInfoEl = document.createElement("h4");
     venueInfoEl.classList.add("shows__info");
-    venueInfoEl.innerText = shows.venue;
+    venueInfoEl.innerText = shows.place;
     venueSectionEl.appendChild(venueInfoEl);
 
     showsEl.appendChild(venueSectionEl);
@@ -131,4 +83,19 @@ const loadShows = (data) => {
   } //FOR LOOP ENDS HERE
 };
 
-loadShows(showsData);
+function convert(timestamp) {
+  let date = new Date( // Convert to date
+    parseInt(
+      // Convert to integer
+      timestamp.split("(")[1] // Take only the part right of the "("
+    )
+  );
+  return [
+    ("0" + date.getDate()).slice(-2), // Get day and pad it with zeroes
+    ("0" + (date.getMonth() + 1)).slice(-2), // Get month and pad it with zeroes
+    date.getFullYear(), // Get full year
+  ].join("/"); // Glue the pieces together
+}
+
+console.log(convert("/Date(1630900800000)/"));
+// loadShows(dataArr);
