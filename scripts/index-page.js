@@ -113,7 +113,7 @@ const getData = axios
     const loadComment = (data) => {
       let commentWrapperEl = document.querySelector(".comment__wrapper");
 
-      for (let i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length - 1; i++) {
         const comments = data[i];
 
         const commentLogEL = document.createElement("div");
