@@ -105,6 +105,7 @@
   color: white;
   padding-left: 2.5rem;
   font-size: 1.5rem;
+  z-index: 10;
 }
 @media only screen and (min-width: 768px) {
   .main__header {
@@ -420,7 +421,7 @@
 }
 .comment__image {
   width: 8rem;
-  height: 5rem;
+  height: 3rem;
   border-radius: 50%;
   margin-top: 1rem;
   background-color: #e1e1e1;
@@ -539,7 +540,15 @@
     margin: 0rem;
   }
 }
-
+@media only screen and (max-width: 768px) {
+  .footer__text-icons {
+    display: flex;
+    flex-direction: column; /*ADDED STYLES HERE*/
+  }
+}
+.footer__text-icons {
+  display: flex;
+}
 html,
 body {
   margin: 0;
@@ -549,8 +558,18 @@ body {
   box-sizing: border-box;
 }
 
+.background__overlay {
+  position: absolute;
+  background: #32323250;
+  bottom: 0;
+  top: 0;
+  height: 100%;
+  z-index: 2;
+  width: 100%;
+}
 *,
 *:before,
 *:after {
   box-sizing: inherit;
-} /*# sourceMappingURL=bio.css.map */
+}
+/*# sourceMappingURL=bio.css.map */
