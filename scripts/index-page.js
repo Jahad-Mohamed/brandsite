@@ -1,19 +1,15 @@
 let formEl = document.querySelector(".comment__query-form");
 
-const loadComment = (data) => {
+const loadComment = (arrayComment) => {
   let commentWrapperEl = document.querySelector(".comment__wrapper");
-  console.log("new comment" + data.name);
-  for (let i = 0; i < data.length; i++) {
-    const comments = data[i];
-
+  console.log(arrayComment);
+  arrayComment.forEach((data) => {
     const commentLogEL = document.createElement("div");
-
     commentLogEL.classList.add("comment__log");
     commentWrapperEl.appendChild(commentLogEL);
 
     const commentUserEL = document.createElement("div");
     commentUserEL.classList.add("comment__user");
-    // commentUserEL.innerHTML =
     commentLogEL.appendChild(commentUserEL);
 
     // name section
@@ -49,40 +45,80 @@ const loadComment = (data) => {
     nameDateImageSectionEl.appendChild(commentTextEl);
 
     commentUserEL.appendChild(nameDateImageSectionEl);
-  }
+  });
 };
 
-formEl.addEventListener("submit", (event) => {
-  event.preventDefault();
+// new comment submit validation
+document.querySelector(".comment__button").type = "button";
 
-  console.log(event);
+// formEl.addEventListener("submit", (event) => {
+document
+  .querySelector(".comment__button")
+  .addEventListener("click", (event) => {
+    if (
+      document.querySelector(".comment__box-name").value != "" &&
+      document.querySelector(".comment__box-comment").value != ""
+    ) {
+      event.preventDefault();
+      // console.log("test");
+      // console.log(event);
+      // console.log(event.target.elements);
 
-  console.log(event.target.elements);
+      // will output all form elements
 
-  // will output all form elements
+      // All inputs are available by their name="" attribute value
+      // input values are available through value property
 
-  // All inputs are available by their name="" attribute value
-  // input values are available through value property
+      const nameInput = document.querySelector(".comment__box-name");
+      const commentInput = document.querySelector(".comment__box-comment");
 
-  const nameInput = document.querySelector(".comment__box-name");
-  const commentInput = document.querySelector(".comment__box-comment");
+      console.log("myvalues", nameInput, commentInput);
 
-  console.log("myvalues", nameInput, commentInput);
+      const nameValue = nameInput.value;
+      const commentValue = commentInput.value;
 
-  const nameValue = nameInput.value;
-  const commentValue = commentInput.value;
+      const newComment = {
+        name: nameValue,
+        comment: commentValue,
+      };
 
-  const newComment = {
-    name: nameValue,
-    comment: commentValue,
-  };
+      console.log("myvalues2", nameValue, commentValue);
+      postComment(newComment);
+      loadComment(newComment);
 
-  console.log("myvalues2", nameValue, commentValue);
-  postComment(newComment);
-  loadComment(newComment);
-  nameInput.value = null;
-  commentInput.value = null;
-});
+      nameInput.value = null;
+      commentInput.value = null;
+    } else {
+      if (!document.querySelector(".comment__box-name").checkValidity()) {
+        document.querySelector(".comment__box-name").style.border =
+          "1px solid red";
+        // document.querySelector(".comment__box-comment").setAttribute('data-after', 'anything');
+        document.querySelector(".errorClass1").style.color = "red";
+
+        document.querySelector(".errorClass1").style.display = "block";
+      }
+      if (document.querySelector(".comment__box-comment").value == "") {
+        document.querySelector(".comment__box-comment").style.border =
+          "1px solid red";
+
+        document.querySelector(".errorClass2").style.color = "red";
+
+        document.querySelector(".errorClass2").style.display = "block";
+      }
+      document
+        .querySelector(".comment__box-comment")
+        .addEventListener("textentered", (event) => {
+          event.target.style.border = "1px solid black";
+          document.querySelector(".errorClass2").style.display = "none";
+        });
+      document
+        .querySelector(".comment__box-name")
+        .addEventListener("textentered", (event) => {
+          event.target.style.border = "1px solid black";
+          document.querySelector(".errorClass1").style.display = "none";
+        });
+    }
+  });
 
 let postComment = (comment) => {
   axios

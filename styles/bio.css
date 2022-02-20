@@ -420,7 +420,7 @@
 }
 .comment__image {
   width: 8rem;
-  height: 3rem;
+  height: 5rem;
   border-radius: 50%;
   margin-top: 1rem;
   background-color: #e1e1e1;
@@ -553,4 +553,4 @@ body {
 *:before,
 *:after {
   box-sizing: inherit;
-}/*# sourceMappingURL=bio.css.map */
+} /*# sourceMappingURL=bio.css.map */
