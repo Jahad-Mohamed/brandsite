@@ -3,7 +3,7 @@ let formEl = document.querySelector(".comment__query-form");
 const loadComment = (data) => {
   let commentWrapperEl = document.querySelector(".comment__wrapper");
   console.log("new comment" + data.name);
-  for (let i = data.length - 1; i >= 0; i--) {
+  for (let i = 0; i < data.length; i++) {
     const comments = data[i];
 
     const commentLogEL = document.createElement("div");
@@ -23,7 +23,7 @@ const loadComment = (data) => {
 
     const imgTagsEl = document.createElement("img");
     imgTagsEl.classList.add("comment__image");
-    // imgTagsEl.src="../assets/images/Mohan-muruge.jpg";
+    //
     commentUserEL.appendChild(imgTagsEl);
 
     const nameDateEl = document.createElement("div");
@@ -38,7 +38,7 @@ const loadComment = (data) => {
 
     const commentDateEl = document.createElement("h4");
     commentDateEl.classList.add("comment__date");
-    commentDateEl.innerText = data[i].timestamp;
+    commentDateEl.innerText = convert("/Date(" + data[i].timestamp + ")/");
     nameDateEl.appendChild(commentDateEl);
 
     // commment section
@@ -93,7 +93,7 @@ let postComment = (comment) => {
     .then((response) => {
       let initialDiv = document.createElement("div");
       initialDiv.className = "initialDiv";
-      // initialDiv.innerHTML="[object HTMLDivElement]";
+      //
       let comment__log = document.createElement("div");
       comment__log.className = "comment__log";
       let comment__user = document.createElement("div");
@@ -113,7 +113,9 @@ let postComment = (comment) => {
       comment__name.innerHTML = response.data.name;
       let comment__date = document.createElement("h4");
       comment__date.className = "comment__date";
-      comment__date.innerHTML = response.data.timestamp;
+      comment__date.innerHTML = convert(
+        "/Date(" + response.data.timestamp + ")/"
+      );
 
       let comment__text = document.createElement("h4");
       comment__text.className = "comment__text";
@@ -127,11 +129,11 @@ let postComment = (comment) => {
         comment__name_date_image
       );
 
-      //  var deleteButton = document.createElement("button");
+      //  const deleteButton = document.createElement("button");
 
       console.log(
         response.data,
-        "hhhhhhhhhhhhhhh",
+        "response",
         document.querySelector(".comment__wrapper").prepend(comment__log)
       );
       // getAllComment().catch((err) => console.log("My API Error: ", err))
@@ -157,11 +159,21 @@ const getData = axios
   )
   .then((response) => {
     let dataArr = response.data;
+    dataArr.sort(function (a, b) {
+      return b.timestamp - a.timestamp;
+    });
+    // console.log(
+    //   dataArr.sort(function (a, b) {
+    //     return (
+    //       convert("/Date(" + a.timestamp + ")/") -
+    //       convert("/Date(" + b.timestamp + ")/")
+    //     );
+    //   })
 
     dataArr.forEach((dataArr) => {
-      console.log(dataArr.name);
-      console.log(dataArr.timestamp);
-      console.log(dataArr.comment);
+      // console.log(dataArr.name);
+      // console.log(dataArr.timestamp);
+      // console.log(dataArr.comment);
     });
 
     let name = dataArr.name;
@@ -170,3 +182,19 @@ const getData = axios
 
     loadComment(dataArr);
   });
+
+function convert(timestamp) {
+  var date = new Date( // Convert to date
+    parseInt(
+      // Convert to integer
+      timestamp.split("(")[1] // Take only the part right of the "("
+    )
+  );
+  return [
+    ("0" + date.getDate()).slice(-2), // Get day and pad it with zeroes
+    ("0" + (date.getMonth() + 1)).slice(-2), // Get month and pad it with zeroes
+    date.getFullYear(), // Get full year
+  ].join("/"); // Glue the pieces together
+}
+
+console.log(convert("/Date(1630900800000)/"));
