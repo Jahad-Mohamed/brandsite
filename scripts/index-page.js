@@ -29,19 +29,19 @@ const loadComment = (arrayComment) => {
     //name and date child
     const commentNameEl = document.createElement("h4");
     commentNameEl.classList.add("comment__name");
-    commentNameEl.innerText = data[i].name;
+    commentNameEl.innerText = data.name;
     nameDateEl.appendChild(commentNameEl);
 
     const commentDateEl = document.createElement("h4");
     commentDateEl.classList.add("comment__date");
-    commentDateEl.innerText = convert("/Date(" + data[i].timestamp + ")/");
+    commentDateEl.innerText = convert("/Date(" + data.timestamp + ")/");
     nameDateEl.appendChild(commentDateEl);
 
     // commment section
 
     const commentTextEl = document.createElement("h4");
     commentTextEl.classList.add("comment__text");
-    commentTextEl.innerText = data[i].comment;
+    commentTextEl.innerText = data.comment;
     nameDateImageSectionEl.appendChild(commentTextEl);
 
     commentUserEL.appendChild(nameDateImageSectionEl);
