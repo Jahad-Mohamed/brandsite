@@ -83,7 +83,14 @@ $desktop-min-width: 1280px;
       width: 40vw;
     }
   }
+  &__album-header {
+    @include large {
+      width: 100%;
+      display: flex;
+    }
+  }
 }
+
 .shows__heading {
   margin: 2rem 0rem 2rem 2rem;
 }

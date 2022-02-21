@@ -60,19 +60,9 @@ document
       document.querySelector(".comment__box-comment").value != ""
     ) {
       event.preventDefault();
-      // console.log("test");
-      // console.log(event);
-      // console.log(event.target.elements);
-
-      // will output all form elements
-
-      // All inputs are available by their name="" attribute value
-      // input values are available through value property
 
       const nameInput = document.querySelector(".comment__box-name");
       const commentInput = document.querySelector(".comment__box-comment");
-
-      console.log("myvalues", nameInput, commentInput);
 
       const nameValue = nameInput.value;
       const commentValue = commentInput.value;
@@ -82,8 +72,7 @@ document
         comment: commentValue,
       };
 
-      console.log("myvalues2", nameValue, commentValue);
-      postComment(newComment);
+      displayComment(newComment);
       loadComment(newComment);
 
       nameInput.value = null;
@@ -120,7 +109,7 @@ document
     }
   });
 
-let postComment = (comment) => {
+let displayComment = (comment) => {
   axios
     .post(
       "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E",
@@ -188,7 +177,7 @@ getAllComment = () => {
     );
 };
 
-// HTTP GET
+// HTTP GET DATA
 const getData = axios
   .get(
     "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E"
@@ -198,29 +187,13 @@ const getData = axios
     dataArr.sort(function (a, b) {
       return b.timestamp - a.timestamp;
     });
-    // console.log(
-    //   dataArr.sort(function (a, b) {
-    //     return (
-    //       convert("/Date(" + a.timestamp + ")/") -
-    //       convert("/Date(" + b.timestamp + ")/")
-    //     );
-    //   })
-
-    dataArr.forEach((dataArr) => {
-      // console.log(dataArr.name);
-      // console.log(dataArr.timestamp);
-      // console.log(dataArr.comment);
-    });
-
-    let name = dataArr.name;
-    let timestamp = dataArr.timestamp;
-    let comment = dataArr.comment;
 
     loadComment(dataArr);
   });
 
+//TIMESTAMP COVERTER FUNCTION
 function convert(timestamp) {
-  var date = new Date( // Convert to date
+  let date = new Date( // Convert to date
     parseInt(
       // Convert to integer
       timestamp.split("(")[1] // Take only the part right of the "("
@@ -232,5 +205,3 @@ function convert(timestamp) {
     date.getFullYear(), // Get full year
   ].join("/"); // Glue the pieces together
 }
-
-console.log(convert("/Date(1630900800000)/"));
