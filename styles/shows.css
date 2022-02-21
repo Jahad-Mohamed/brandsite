@@ -124,6 +124,7 @@
 .shows__date-info {
   font-weight: 500;
   margin-top: 0rem;
+  font-weight: bold;
 }
 .shows__info {
   font-weight: 400;
