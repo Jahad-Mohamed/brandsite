@@ -78,6 +78,12 @@
     width: 40vw;
   }
 }
+@media only screen and (min-width: 1280px) {
+  .main__album-header {
+    width: 100%;
+    display: flex;
+  }
+}
 
 .shows__heading {
   margin: 2rem 0rem 2rem 2rem;
@@ -124,6 +130,7 @@
 .shows__date-info {
   font-weight: 500;
   margin-top: 0rem;
+  font-weight: bold;
 }
 .shows__info {
   font-weight: 400;

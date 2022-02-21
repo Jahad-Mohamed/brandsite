@@ -27,6 +27,7 @@
     </header>
     <main class="main">
       <section class="main__page">
+         <div class="background__overlay"></div>
         <img
           src="../assets/images/hero-bio.jpg"
           alt="hero-image"
@@ -135,6 +136,7 @@
             src="../assets/images/Mohan-muruge.jpg"
             alt="Mohan-muruge"
             class="comment__image"
+            
           />
 
           <form class="comment__query-form" autocomplete="off" novalidate>
@@ -144,10 +146,10 @@
               name="name"
               placeholder="Enter your name"
               class="comment__box-name"
-            
               required
             />
             <div class="comment__section">
+            <div class="errorClass1" style=" display:none">Please enter your name</div>
               <label for="comment" class="comment__title">COMMENT</label>
               <textarea
                 name="comment"
@@ -155,8 +157,9 @@
                 class="comment__box-comment"
                 rows="5"
                 cols="40"
-                
+                required
               ></textarea>
+              <div class="errorClass2" style=" display:none">Please enter a comment</div>
             </div>
 
             <button class="comment__button" type="submit">COMMENT</button>
@@ -170,6 +173,7 @@
     </main>
     <footer class="footer">
       <section class="footer__contact">
+        <div class="footer__text-icons">
         <div class="footer__subheader">Get in Touch</div>
         <div class="footer__icons">
           <a href="https://www.instagram.com"
@@ -190,6 +194,7 @@
               class="footer__icon"
               alt="twitter"
           /></a>
+        </div>
         </div>
         <section class="footer__logo-top">
           <img

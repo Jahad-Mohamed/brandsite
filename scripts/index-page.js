@@ -1,42 +1,169 @@
 let formEl = document.querySelector(".comment__query-form");
-formEl.addEventListener("submit", (event) => {
-  event.preventDefault();
 
-  console.log(event);
+const loadComment = (arrayComment) => {
+  let commentWrapperEl = document.querySelector(".comment__wrapper");
+  console.log(arrayComment);
+  arrayComment.forEach((data) => {
+    const commentLogEL = document.createElement("div");
+    commentLogEL.classList.add("comment__log");
+    commentWrapperEl.appendChild(commentLogEL);
 
-  console.log(event.target.elements);
+    const commentUserEL = document.createElement("div");
+    commentUserEL.classList.add("comment__user");
+    commentLogEL.appendChild(commentUserEL);
 
-  // will output all form elements
+    // name section
 
-  // All inputs are available by their name="" attribute value
-  // input values are available through value property
+    const nameDateImageSectionEl = document.createElement("div");
+    nameDateImageSectionEl.classList.add("comment__name-date-image");
 
-  const nameInput = document.querySelector(".comment__box-name");
-  const commentInput = document.querySelector(".comment__box-comment");
+    const imgTagsEl = document.createElement("img");
+    imgTagsEl.classList.add("comment__image");
+    //
+    commentUserEL.appendChild(imgTagsEl);
 
-  console.log("myvalues", nameInput, commentInput);
+    const nameDateEl = document.createElement("div");
+    nameDateEl.classList.add("comment__name-date");
+    nameDateImageSectionEl.appendChild(nameDateEl);
 
-  const nameValue = nameInput.value;
-  const commentValue = commentInput.value;
+    //name and date child
+    const commentNameEl = document.createElement("h4");
+    commentNameEl.classList.add("comment__name");
+    commentNameEl.innerText = data.name;
+    nameDateEl.appendChild(commentNameEl);
 
-  const newComment = {
-    name: nameValue,
-    comment: commentValue,
-  };
+    const commentDateEl = document.createElement("h4");
+    commentDateEl.classList.add("comment__date");
+    commentDateEl.innerText = convert("/Date(" + data.timestamp + ")/");
+    nameDateEl.appendChild(commentDateEl);
 
-  console.log("myvalues2", nameValue, commentValue);
-  postComment(newComment);
-});
+    // commment section
 
-let postComment = (comment) => {
+    const commentTextEl = document.createElement("h4");
+    commentTextEl.classList.add("comment__text");
+    commentTextEl.innerText = data.comment;
+    nameDateImageSectionEl.appendChild(commentTextEl);
+
+    commentUserEL.appendChild(nameDateImageSectionEl);
+  });
+};
+
+// new comment submit validation
+document.querySelector(".comment__button").type = "button";
+
+// formEl.addEventListener("submit", (event) => {
+document
+  .querySelector(".comment__button")
+  .addEventListener("click", (event) => {
+    if (
+      document.querySelector(".comment__box-name").value != "" &&
+      document.querySelector(".comment__box-comment").value != ""
+    ) {
+      event.preventDefault();
+
+      const nameInput = document.querySelector(".comment__box-name");
+      const commentInput = document.querySelector(".comment__box-comment");
+
+      const nameValue = nameInput.value;
+      const commentValue = commentInput.value;
+
+      const newComment = {
+        name: nameValue,
+        comment: commentValue,
+      };
+
+      displayComment(newComment);
+      loadComment(newComment);
+
+      nameInput.value = null;
+      commentInput.value = null;
+    } else {
+      if (!document.querySelector(".comment__box-name").checkValidity()) {
+        document.querySelector(".comment__box-name").style.border =
+          "1px solid red";
+        // document.querySelector(".comment__box-comment").setAttribute('data-after', 'anything');
+        document.querySelector(".errorClass1").style.color = "red";
+
+        document.querySelector(".errorClass1").style.display = "block";
+      }
+      if (document.querySelector(".comment__box-comment").value == "") {
+        document.querySelector(".comment__box-comment").style.border =
+          "1px solid red";
+
+        document.querySelector(".errorClass2").style.color = "red";
+
+        document.querySelector(".errorClass2").style.display = "block";
+      }
+      document
+        .querySelector(".comment__box-comment")
+        .addEventListener("textentered", (event) => {
+          event.target.style.border = "1px solid black";
+          document.querySelector(".errorClass2").style.display = "none";
+        });
+      document
+        .querySelector(".comment__box-name")
+        .addEventListener("textentered", (event) => {
+          event.target.style.border = "1px solid black";
+          document.querySelector(".errorClass1").style.display = "none";
+        });
+    }
+  });
+
+let displayComment = (comment) => {
   axios
     .post(
       "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E",
       comment
     )
-    .then((response) =>
-      getAllComment(response).catch((err) => console.log("My API Error: ", err))
-    );
+    .then((response) => {
+      let initialDiv = document.createElement("div");
+      initialDiv.className = "initialDiv";
+      //
+      let comment__log = document.createElement("div");
+      comment__log.className = "comment__log";
+      let comment__user = document.createElement("div");
+      comment__user.className = "comment__user";
+      comment__log.append(comment__user);
+      let comment__image = document.createElement("img");
+      comment__image.className = "comment__image";
+
+      let comment__name_date_image = document.createElement("DIV");
+      comment__name_date_image.className = "comment__name-date-image";
+
+      let comment__name_date = document.createElement("div");
+      comment__name_date.className = "comment__name-date";
+
+      let comment__name = document.createElement("h4");
+      comment__name.className = "comment__name";
+      comment__name.innerHTML = response.data.name;
+      let comment__date = document.createElement("h4");
+      comment__date.className = "comment__date";
+      comment__date.innerHTML = convert(
+        "/Date(" + response.data.timestamp + ")/"
+      );
+
+      let comment__text = document.createElement("h4");
+      comment__text.className = "comment__text";
+      comment__text.innerHTML = response.data.comment;
+
+      comment__name_date.append(comment__name, comment__date);
+      comment__name_date_image.append(comment__name_date, comment__text);
+      comment__user.append(
+        initialDiv,
+        comment__image,
+        comment__name_date_image
+      );
+
+      //  const deleteButton = document.createElement("button");
+
+      console.log(
+        response.data,
+        "response",
+        document.querySelector(".comment__wrapper").prepend(comment__log)
+      );
+      // getAllComment().catch((err) => console.log("My API Error: ", err))
+      // getAllComment();
+    });
 };
 getAllComment = () => {
   axios
@@ -50,115 +177,31 @@ getAllComment = () => {
     );
 };
 
-// HTTP GET
+// HTTP GET DATA
 const getData = axios
   .get(
     "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E"
   )
   .then((response) => {
     let dataArr = response.data;
-
-    dataArr.forEach((dataArr) => {
-      console.log(dataArr.name);
-      console.log(dataArr.timestamp);
-      console.log(dataArr.comment);
+    dataArr.sort(function (a, b) {
+      return b.timestamp - a.timestamp;
     });
 
-    let name = dataArr.name;
-    let timestamp = dataArr.timestamp;
-    let comment = dataArr.comment;
-
-    //HTTP GET COMMENTS
-
-    // const sendData = axios
-    //   .post(
-    //     "https://project-1-api.herokuapp.com/comments/?api_key=%3C015e6da7-7d99-4573-8225-abdf7d3aab43%3E",
-    //     {
-    //       name: "Nigel",
-    //       comment: "This is a cool site",
-    //       id: 1,
-    //       likes: 0,
-    //       timestamp: 1530716269495,
-    //     }
-    //   )
-    //   .then((response) => {
-    //     console.log(response);
-    //     console.log();
-    //   })
-    //   .catch((err) => console.log("My API Error: ", err));
-
-    /////////////////////////////
-
-    // const commentData = [
-    //   {
-    //     name: "Connor Walton",
-    //     date: "02/17/2021",
-    //     comment:
-    //       "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-    //   },
-    //   {
-    //     name: "Emilie Beach",
-    //     date: "01/09/2021",
-    //     comment:
-    //       "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-    //   },
-    //   {
-    //     name: "Miles Acosta",
-    //     date: "12/20/2020",
-    //     comment:
-    //       "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-    //   },
-    // ];
-
-    const loadComment = (data) => {
-      let commentWrapperEl = document.querySelector(".comment__wrapper");
-
-      for (let i = 0; i < data.length; i++) {
-        const comments = data[i];
-
-        const commentLogEL = document.createElement("div");
-
-        commentLogEL.classList.add("comment__log");
-        commentWrapperEl.appendChild(commentLogEL);
-
-        const commentUserEL = document.createElement("div");
-        commentUserEL.classList.add("comment__user");
-        commentUserEL.innerHTML = commentLogEL.appendChild(commentUserEL);
-
-        // name section
-
-        const nameDateImageSectionEl = document.createElement("div");
-        nameDateImageSectionEl.classList.add("comment__name-date-image");
-
-        const imgTagsEl = document.createElement("img");
-        imgTagsEl.classList.add("comment__image");
-        imgTagsEl.innerHTML = "src=../assets/images/Mohan-muruge.jpg";
-        commentUserEL.appendChild(imgTagsEl);
-
-        const nameDateEl = document.createElement("div");
-        nameDateEl.classList.add("comment__name-date");
-        nameDateImageSectionEl.appendChild(nameDateEl);
-
-        //name and date child
-        const commentNameEl = document.createElement("h4");
-        commentNameEl.classList.add("comment__name");
-        commentNameEl.innerText = name;
-        nameDateEl.appendChild(commentNameEl);
-
-        const commentDateEl = document.createElement("h4");
-        commentDateEl.classList.add("comment__date");
-        commentDateEl.innerText = timestamp;
-        nameDateEl.appendChild(commentDateEl);
-
-        // commment section
-
-        const commentTextEl = document.createElement("h4");
-        commentTextEl.classList.add("comment__text");
-        commentTextEl.innerText = comment;
-        nameDateImageSectionEl.appendChild(commentTextEl);
-
-        commentUserEL.appendChild(nameDateImageSectionEl);
-      }
-    };
     loadComment(dataArr);
   });
+
+//TIMESTAMP COVERTER FUNCTION
+function convert(timestamp) {
+  let date = new Date( // Convert to date
+    parseInt(
+      // Convert to integer
+      timestamp.split("(")[1] // Take only the part right of the "("
+    )
+  );
+  return [
+    ("0" + date.getDate()).slice(-2), // Get day and pad it with zeroes
+    ("0" + (date.getMonth() + 1)).slice(-2), // Get month and pad it with zeroes
+    date.getFullYear(), // Get full year
+  ].join("/"); // Glue the pieces together
+}

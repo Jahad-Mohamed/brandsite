@@ -28,6 +28,7 @@ $desktop-min-width: 1280px;
   &__hero-shows {
     width: 100%;
     height: 50vh;
+
     @include medium {
       height: 60vh;
     }
@@ -82,7 +83,14 @@ $desktop-min-width: 1280px;
       width: 40vw;
     }
   }
+  &__album-header {
+    @include large {
+      width: 100%;
+      display: flex;
+    }
+  }
 }
+
 .shows__heading {
   margin: 2rem 0rem 2rem 2rem;
 }
@@ -121,6 +129,7 @@ $desktop-min-width: 1280px;
   &__date-info {
     font-weight: 500;
     margin-top: 0rem;
+    font-weight: bold;
   }
 
   &__info {
@@ -168,13 +177,3 @@ $desktop-min-width: 1280px;
     }
   }
 }
-
-// @include small {
-//   padding: 3rem;
-// }
-// @include medium {
-//   padding: 3rem;
-// }
-// @include large {
-//   padding: 3rem;
-// }
