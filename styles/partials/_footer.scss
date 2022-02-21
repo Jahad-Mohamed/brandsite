@@ -17,7 +17,7 @@
   }
 
   &__subheader {
-    font-size: 1.5rem;
+    font-size: 2rem;
     line-height: 2rem;
     font-weight: 700;
   }
@@ -35,11 +35,12 @@
     padding: 1rem 2rem 2rem 0rem;
     @include medium {
       padding: 0rem;
+      padding-left: 1rem;
     }
   }
 
   &__containers {
-    font-size: 1.5rem;
+    font-size: 2rem;
 
     @include medium {
       display: flex;
@@ -57,7 +58,7 @@
     &__contact-details {
       display: flex;
       flex-direction: column;
-      font-size: 0.813rem;
+      font-size: 1.813rem;
       margin-right: 2rem;
     }
     @include medium {
@@ -114,5 +115,10 @@
   &__copyright {
     font-size: 0.813rem;
     line-height: normal;
+  }
+  &__text-icons {
+    @include medium {
+      display: flex;
+    }
   }
 }
